@@ -1,0 +1,49 @@
+<div id="commandsPanel" class="panel panel-default panel-flex-col" style="flex-grow: 1;">
+    <div class="panel-heading">
+        <div class="pull-right">
+            <div class="panel-flex-row">
+                <table class="checkbox">
+                    <tr>
+                        <td>&nbsp;&nbsp;</td>
+                        <td>
+                            <label>
+                                <input type="checkbox" id="autocheck_status" onclick="on_autocheck_status()" />
+                                <span translate>update:</span>
+                            </label>
+                        </td>
+                    </tr>
+                </table>
+                <table class="input-group">
+                    <tr>
+                        <td>
+                            <input class="form-control w4" type="number" min="1" max="99" id="statusInterval_check" value=3 onchange="onstatusIntervalChange()" />
+                            <span class="input-group-addon form_control" translate>sec</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <b><span translate>Commands</span></b>
+        <button id="clear_monitor_btn" class="btn btn-primary pull-right" onclick="Monitor_output_Clear()" translate>Clear</button>
+    </div>
+    <div id="command-body" class="panel-body panel-flex-main">
+        <div class="panel-flex-row" id="wrapper" style="max-height: 400px;">
+            <textarea class="form-control" id="commandEditor" ></textarea>
+        </div>
+        <pre id="cmd_content" style="min-height: 100px; max-height: 300px;"></pre>
+    </div>
+    <div class="panel-footer">
+        <div class="panel-flex-row">
+            <div class="input-group" style ="width: 100%;">
+                <div class="input-group">
+                    <form autocomplete="off" onsubmit="return false;">
+                        <input autocomplete="off" class="form-control w14" type="text" onkeyup="CustomCommand_OnKeyUp(event)" value="" id="custom_cmd_txt" translateph placeholder="Send Command..." style="width: 100%;"/>
+                    </form>
+                    <div class="input-group-btn">
+                        <button class="btn btn-success" onclick="SendCustomCommand();" translate>Send</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
