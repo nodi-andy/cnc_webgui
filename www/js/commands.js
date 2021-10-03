@@ -103,6 +103,26 @@ function SendCustomCommand() {
     SendGetHttp(url + cmd, SendCustomCommandSuccess, SendCustomCommandFailed);
 }
 
+function startBatch() {
+    var cE = document.getElementById("commandEditor").value.replace(/\n/g, "\r\n");;
+    var blob = new Blob([cE], {type: 'application/json'});
+    var file;
+    if (browser_is("IE") || browser_is("Edge")) {
+        file = blob;
+        file.name = "macro1.g";
+        file.lastModifiedDate = new Date();
+    } else file = new File([blob], "macro1.g");
+    var formData = new FormData();
+    var url = "/files";
+    formData.append('path', '/');
+    formData.append('myfile[]', file, "macro1.g");
+    SendFileHttp(url, formData, null, batchUploadsuccess);
+}
+
+function batchUploadsuccess(response) {
+    SendCommand("[ESP700]macro1.g");
+}
+
 function SendCommand(cmd) {
     var url = "/command?commandText=";
     cmd = cmd.trim();

@@ -192,10 +192,10 @@ function SendJogcommand(cmd, feedrate) {
     var feedratevalue = "";
     var command = "";
     if (feedrate == "XYfeedrate") {
-        feedratevalue = parseInt(document.getElementById('control_xy_velocity').value);
+        feedratevalue = parseInt(document.getElementById('control_x_velocity').value);
         if (feedratevalue < 1 || isNaN(feedratevalue) || (feedratevalue === null)) {
             alertdlg(translate_text_item("Out of range"), translate_text_item("XY Feedrate value must be at least 1 mm/min!"));
-            document.getElementById('control_xy_velocity').value = preferenceslist[0].xy_feedrate;
+            document.getElementById('control_x_velocity').value = preferenceslist[0].xy_feedrate;
             return;
         }
     } else {
@@ -220,7 +220,7 @@ function SendJogcommand(cmd, feedrate) {
 }
 
 function onXYvelocityChange() {
-    var feedratevalue = parseInt(document.getElementById('control_xy_velocity').value);
+    var feedratevalue = parseInt(document.getElementById('control_x_velocity').value);
     if (feedratevalue < 1 || feedratevalue > 9999 || isNaN(feedratevalue) || (feedratevalue === null)) {
         //we could display error but we do not
     }
@@ -301,4 +301,26 @@ function showJoystick() {
     var pos = document.getElementById("JogUI").style.left;
     if (pos == "100px") document.getElementById("JogUI").style.left = "-500px";
     else document.getElementById("JogUI").style.left = "100px";
+}
+
+function showProbeDialog() {
+    var cp = document.getElementById("controlPanel");
+    if (document.getElementById("probeUI").style.left != "100%") document.getElementById("probeUI").style.left = "100%";
+    else document.getElementById("probeUI").style.left = (cp.getBoundingClientRect().left - document.getElementById("probeUI").getBoundingClientRect().width) + "px";
+}
+function showXaxisDialog() {
+    var pos = document.getElementById("x_axis_UI").style.left;
+    if (pos == "100px") document.getElementById("x_axis_UI").style.left = "-500px";
+    else document.getElementById("x_axis_UI").style.left = "100px";
+}
+function showZaxisDialog() {
+    var pos = document.getElementById("z_axis_UI").style.left;
+    if (pos == "100px") document.getElementById("z_axis_UI").style.left = "-500px";
+    else document.getElementById("z_axis_UI").style.left = "100px";
+}
+
+function showSpindleDialog() {
+    var pos = document.getElementById("spindle_UI").style.left;
+    if (pos == "100px") document.getElementById("spindle_UI").style.left = "-500px";
+    else document.getElementById("spindle_UI").style.left = "100px";
 }

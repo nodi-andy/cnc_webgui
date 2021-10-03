@@ -282,14 +282,15 @@ function applypreferenceslist() {
             document.getElementById('camera_detach_button').style.display = "none";
         }
     }
-    if (preferenceslist[0].enable_grbl_probe_panel === 'true') {
+
+    /*if (preferenceslist[0].enable_grbl_probe_panel === 'true') {
         document.getElementById('grblprobetablink').style.display = 'block';
     } else {
         document.getElementById("grblcontroltablink").click();
         document.getElementById('grblprobetablink').style.display = 'none';
     }
 
-    /*if (preferenceslist[0].enable_DHT === 'true') {
+    if (preferenceslist[0].enable_DHT === 'true') {
         document.getElementById('DHT_humidity').style.display = 'block';
         document.getElementById('DHT_temperature').style.display = 'block';
     } else {
@@ -448,7 +449,7 @@ function applypreferenceslist() {
 
     document.getElementById('posInterval_check').value = parseInt(preferenceslist[0].interval_positions);
     document.getElementById('statusInterval_check').value = parseInt(preferenceslist[0].interval_status);
-    document.getElementById('control_xy_velocity').value = parseInt(preferenceslist[0].xy_feedrate);
+    document.getElementById('control_x_velocity').value = parseInt(preferenceslist[0].xy_feedrate);
     document.getElementById('control_z_velocity').value = parseInt(preferenceslist[0].z_feedrate);
     if (target_firmware == "grbl-embedded"){
         if (grblaxis > 2 )axis_Z_feedrate = parseInt(preferenceslist[0].z_feedrate);
@@ -493,17 +494,36 @@ function showpreferencesdlg() {
 }
 
 function requestFullScreen(element) {
-    // Supports most browsers and their versions.
-    var requestMethod = element.requestFullScreen || element.webkitRequestFullScreen || element.mozRequestFullScreen || element.msRequestFullScreen;
+    var isInFullScreen = (document.fullscreenElement && document.fullscreenElement !== null) ||
+    (document.webkitFullscreenElement && document.webkitFullscreenElement !== null) ||
+    (document.mozFullScreenElement && document.mozFullScreenElement !== null) ||
+    (document.msFullscreenElement && document.msFullscreenElement !== null);
 
-    if (requestMethod) { // Native full screen.
-        requestMethod.call(element);
-    } else if (typeof window.ActiveXObject !== "undefined") { // Older IE.
-        var wscript = new ActiveXObject("WScript.Shell");
-        if (wscript !== null) {
-            wscript.SendKeys("{F11}");
+    var docElm = document.documentElement;
+    if (!isInFullScreen) {
+        // Supports most browsers and their versions.
+        var requestMethod = element.requestFullScreen || element.webkitRequestFullScreen || element.mozRequestFullScreen || element.msRequestFullScreen;
+
+        if (requestMethod) { // Native full screen.
+            requestMethod.call(element);
+        } else if (typeof window.ActiveXObject !== "undefined") { // Older IE.
+            var wscript = new ActiveXObject("WScript.Shell");
+            if (wscript !== null) {
+                wscript.SendKeys("{F11}");
+            }
+        }
+    } else {
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        } else if (document.webkitExitFullscreen) {
+            document.webkitExitFullscreen();
+        } else if (document.mozCancelFullScreen) {
+            document.mozCancelFullScreen();
+        } else if (document.msExitFullscreen) {
+            document.msExitFullscreen();
         }
     }
+
 }
 
 function build_dlg_preferences_list() {

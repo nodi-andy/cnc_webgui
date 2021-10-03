@@ -37,11 +37,14 @@
     <!-- endsmoosh -->
   </head>
 
-  <body style="display: flex; height: 100%;">
+  <body style="display: flex; height: 100%; flex-direction: column;">
     
     <div id="JogUI" style="position: absolute; left: -500px; bottom: 100px; transition-property: left; transition-duration: 1s; backdrop-filter: blur(1px); z-index: 10;">
-      <!-- replaceSVG --><object data="images/jogdial.svg" type="image/svg+xml"></object><!-- /replaceSVG -->
+    <!-- replaceSVG --><object data="images/jogdial.svg" type="image/svg+xml"></object><!-- /replaceSVG -->
     </div>
+    
+    <file-include w3-include-html="'sub/probe_dlg.html'"></file-include>
+
     
     <div id = "main_ui" style="display: flex; flex-direction: column; width: 100%; height: 100%;">
       <file-include w3-include-html="'sub/tab_bar.html'"></file-include>
@@ -52,14 +55,15 @@
         <file-include w3-include-html="'sub/cameratab.html'"></file-include>
         <file-include w3-include-html="'sub/configtab.html'"></file-include>
         <file-include w3-include-html="'sub/settingstab.html'"></file-include>
-        <div id="maintab" class="tabcontent" style="display: flex; flex: 1; flex-wrap: wrap;">
+        <div id="maintab" class="tabcontent" style="display: flex; flex: 1;">
           <file-include w3-include-html="'sub/macro.html'"></file-include>
+          <div id="maintab" class="tabcontent" style="display: flex; flex: 1; flex-wrap: wrap;">
+            <file-include w3-include-html="'sub/files.html'"></file-include>
+            <file-include w3-include-html="'sub/temperaturepanel.html'"></file-include>
+            <file-include w3-include-html="'sub/extruderpanel.html'"></file-include>
+            <file-include w3-include-html="'sub/commandpanel.html'"></file-include>
+          </div>  
           <file-include w3-include-html="'sub/controlspanel.html'"></file-include>
-          <file-include w3-include-html="'sub/files.html'"></file-include>
-          <file-include w3-include-html="'sub/temperaturepanel.html'"></file-include>
-          <file-include w3-include-html="'sub/extruderpanel.html'"></file-include>
-  
-          <file-include w3-include-html="'sub/commandpanel.html'"></file-include>
   
         </div>
       </div>
