@@ -1,8 +1,8 @@
-<div id="controlPanel" style ="display: flex; flex-direction: column; justify-content: center;">
+<div id="controlPanel" style ="display: flex; flex-direction: column; justify-content: center; gap: 12px">
 
     <div>
-        <button id="clear_status_btn" class="btn fixedbutton btn-default hide_it" onclick="SendPrinterCommand('$X', true, null,null, 114, 1);" style="padding: 5px 5px 0 5px;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="red" class="bi bi-exclamation-triangle" viewBox="0 0 16 16">
+        <button id="clear_status_btn" class="btn fixedbutton btn-default hide_it" style="width: 100%;" onclick="SendPrinterCommand('$X', true, null,null, 114, 1);" style="padding: 5px 5px 0 5px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="red" class="bi bi-exclamation-triangle" viewBox="0 0 16 16">
                 <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
                 <path d="M7.002 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 5.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995z"/>
               </svg>
@@ -11,7 +11,7 @@
 
 
     <div>
-        <button class="btn fixedbutton btn-default" onclick="startBatch();" translate>
+        <button class="btn fixedbutton btn-default" style="width: 100%;" onclick="startBatch();" translate>
             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-collection-play" viewBox="0 0 16 16">
                 <path d="M2 3a.5.5 0 0 0 .5.5h11a.5.5 0 0 0 0-1h-11A.5.5 0 0 0 2 3zm2-2a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 0-1h-7A.5.5 0 0 0 4 1zm2.765 5.576A.5.5 0 0 0 6 7v5a.5.5 0 0 0 .765.424l4-2.5a.5.5 0 0 0 0-.848l-4-2.5z"/>
                 <path d="M1.5 14.5A1.5 1.5 0 0 1 0 13V6a1.5 1.5 0 0 1 1.5-1.5h13A1.5 1.5 0 0 1 16 6v7a1.5 1.5 0 0 1-1.5 1.5h-13zm13-1a.5.5 0 0 0 .5-.5V6a.5.5 0 0 0-.5-.5h-13A.5.5 0 0 0 1 6v7a.5.5 0 0 0 .5.5h13z"/>
@@ -20,7 +20,7 @@
     </div>
 
     <div>
-        <button id="sd_resume_btn" class="btn fixedbutton btn-default" onclick="SendRealtimeCmd('~');">
+        <button id="sd_resume_btn" class="btn fixedbutton btn-default" style="width: 100%;" onclick="SendRealtimeCmd('~');">
             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-play-btn" viewBox="0 0 16 16">
                 <path d="M6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814l-3.5-2.5z"/>
                 <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm15 0a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z"/>
@@ -29,7 +29,7 @@
     </div>
 
     <div>
-        <button id="sd_pause_btn" class="btn fixedbutton btn-default" onclick="SendRealtimeCmd('!');">
+        <button id="sd_pause_btn" class="btn fixedbutton btn-default" style="width: 100%;" onclick="SendRealtimeCmd('!');">
             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-pause-btn" viewBox="0 0 16 16">
                 <path d="M6.25 5C5.56 5 5 5.56 5 6.25v3.5a1.25 1.25 0 1 0 2.5 0v-3.5C7.5 5.56 6.94 5 6.25 5zm3.5 0c-.69 0-1.25.56-1.25 1.25v3.5a1.25 1.25 0 1 0 2.5 0v-3.5C11 5.56 10.44 5 9.75 5z"/>
                 <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm15 0a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z"/>
@@ -38,7 +38,7 @@
     </div>
 
     <div>
-        <button id="zero_xyz_btn"  class="btn fixedbutton btn-default" onclick="SendZerocommand(grblzerocmd)">
+        <button id="zero_xyz_btn"  class="btn fixedbutton btn-default" style="width: 100%;" onclick="SendZerocommand(grblzerocmd)">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-circle" viewBox="0 0 16 16">
                 <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
                 <line x1="0" y1="16" x2="16" y2="0" stroke="black" />
@@ -47,7 +47,7 @@
     </div>
 
     <div>
-        <button id="btnProbe"  class="btn fixedbutton btn-default" onclick="showProbeDialog()">
+        <button id="btnProbe"  class="btn fixedbutton btn-default" style="width: 100%;" onclick="showProbeDialog()">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-align-bottom" viewBox="0 0 16 16">
                 <rect width="4" height="12" x="6" y="1" rx="1"/>
                 <path d="M1.5 14a.5.5 0 0 0 0 1v-1zm13 1a.5.5 0 0 0 0-1v1zm-13 0h13v-1h-13v1z"/>
@@ -56,21 +56,24 @@
     </div>
 
     <div>
-        <button id="btnSpindle"  class="btn fixedbutton btn-default" onclick="showSpindleDialog()">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-align-bottom" viewBox="0 0 16 16">
-                <rect width="4" height="12" x="6" y="1" rx="1"/>
-                <path d="M1.5 14a.5.5 0 0 0 0 1v-1zm13 1a.5.5 0 0 0 0-1v1zm-13 0h13v-1h-13v1z"/>
+        <button id="btnSpindle"  class="btn fixedbutton btn-default" style="width: 100%;" onclick="showSpindleDialog()">
+            <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" viewBox="132 97 60 98">
+                 <polygon transform="rotate(89.40613555908203 163.01202392578122,182.76109313964844) " stroke-width="null" points="174.1668574708945,182.7610886418791 151.85718034687108,209.38065931487864 151.85718034687108,156.14151796887955 174.1668574708945,182.7610886418791 " fill="#000000" id="svg_1"/>
+                 <line fill="none" stroke-width="9" x1="139.92969" y1="164.48437" x2="184.03907" y2="156.23437" id="svg_2" stroke="#000000"/>
+                 <line fill="none" stroke-width="9" x1="139.92969" y1="146.17969" x2="184.03907" y2="137.92969" stroke="#000000" id="svg_5"/>
+                 <line fill="none" stroke-width="9" x1="139.92969" y1="130.14844" x2="184.03907" y2="121.89844" stroke="#000000" id="svg_6"/>
+                 <line fill="none" stroke-width="9" x1="139.92969" y1="114.11719" x2="184.03907" y2="105.86719" stroke="#000000" id="svg_7"/>
             </svg>
         </button>
     </div>
 
     <div>
-        <button class="btn fixedbutton btn-default" id="x_axis" onclick="showXaxisDialog()">X</button>
+        <button class="btn fixedbutton btn-default" id="x_axis" style="width: 100%;" onclick="showXaxisDialog()">X</button>
     </div>
     <div>
-        <button class="btn fixedbutton btn-default" id="y_axis" onclick="showYaxisDialog()">Y</button>
+        <button class="btn fixedbutton btn-default" id="y_axis" style="width: 100%;" onclick="showYaxisDialog()">Y</button>
     </div>
     <div>
-        <button class="btn fixedbutton btn-default" id="z_axis" onclick="showZaxisDialog()">Z</button>
+        <button class="btn fixedbutton btn-default" id="z_axis" style="width: 100%;" onclick="showZaxisDialog()">Z</button>
     </div>
 </div>

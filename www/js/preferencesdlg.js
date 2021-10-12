@@ -485,12 +485,13 @@ function applypreferenceslist() {
 }
 
 function showpreferencesdlg() {
-    var modal = setactiveModal('preferencesdlg.html');
+    /*var modal = setactiveModal('preferencesdlg.html');
     if (modal == null) return;
     language_save = language;
     build_dlg_preferences_list();
     document.getElementById('preferencesdlg_upload_msg').style.display = 'none';
-    showModal();
+    showModal();*/
+    opentab(event, 'settingstab', 'mainuitabscontent', 'mainuitablinks');
 }
 
 function requestFullScreen(element) {

@@ -32,6 +32,7 @@
   overflow-wrap: normal;
   overflow-x: auto;
   white-space: pre;
+  width: 100%;
 }
 .tln-wrapper {
   padding: 0.6875em 0.3125em 2.1875em;

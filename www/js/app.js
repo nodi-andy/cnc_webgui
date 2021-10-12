@@ -480,6 +480,14 @@ function initUI_2() {
     initUI_3();
 }
 
+function loadFile(filename) {
+    var url = "/files?action=read";
+    url += "&filename="+filename;
+    url += "&path=/";
+    console.log(url);
+    SendGetHttp(url, SPIFFSread, SPIFFSfailed);
+}
+
 function initUI_3() {
     AddCmd(display_boot_progress);
     //init panels 
@@ -489,11 +497,7 @@ function initUI_3() {
     console.log("Get preferences");
     getpreferenceslist();
 
-    var url = "/files?action=read";
-    url += "&filename=macro1.g";
-    url += "&path=/";
-    console.log(url);
-    SendGetHttp(url, SPIFFSread, SPIFFSfailed);
+    loadFile("macro1.g");
     
     initUI_4();
 }

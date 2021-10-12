@@ -26,6 +26,26 @@ function Monitor_output_Clear() {
     Monitor_output_Update();
 }
 
+function saveToFile() {
+    var cE = document.getElementById("commandEditor").value.replace(/\n/g, "\r\n");;
+    var blob = new Blob([cE], {type: 'application/json'});
+    var file;
+    if (browser_is("IE") || browser_is("Edge")) {
+        file = blob;
+        file.name = currentFile;
+        file.lastModifiedDate = new Date();
+    } else file = new File([blob], currentFile);
+    var formData = new FormData();
+    var url = "/files";
+    formData.append('path', '/');
+    formData.append('myfile[]', file, currentFile);
+    SendFileHttp(url, formData, null, fileUploadsuccess);
+}
+
+function fileUploadsuccess(response) {
+    //SendCommand("[ESP700]macro1.g");
+}
+
 function Monitor_output_Update(message) {
     if (message) {
         if (typeof message === 'string' || message instanceof String) {
@@ -109,18 +129,18 @@ function startBatch() {
     var file;
     if (browser_is("IE") || browser_is("Edge")) {
         file = blob;
-        file.name = "macro1.g";
+        file.name = currentFile;
         file.lastModifiedDate = new Date();
-    } else file = new File([blob], "macro1.g");
+    } else file = new File([blob], currentFile);
     var formData = new FormData();
     var url = "/files";
     formData.append('path', '/');
-    formData.append('myfile[]', file, "macro1.g");
+    formData.append('myfile[]', file, currentFile);
     SendFileHttp(url, formData, null, batchUploadsuccess);
 }
 
 function batchUploadsuccess(response) {
-    SendCommand("[ESP700]macro1.g");
+    SendCommand("[ESP700]" + currentFile);
 }
 
 function SendCommand(cmd) {

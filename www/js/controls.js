@@ -1,6 +1,11 @@
 var interval_position = -1;
 var control_macrolist = [];
-
+var currentFile = "";
+var rightMenu = [   document.getElementById("probeUI"),
+                    document.getElementById("x_axis_UI"),
+                    document.getElementById("y_axis_UI"),
+                    document.getElementById("z_axis_UI"),
+                    document.getElementById("spindle_UI")];
 
 function init_controls_panel() {
     loadmacrolist();
@@ -12,7 +17,7 @@ function hideAxiscontrols() {
     document.getElementById('CornerZ').style.display = 'block';
     document.getElementById('control_z_position_display').style.display = 'none';
     document.getElementById('control_zm_position_row').style.display = 'none';
-    document.getElementById('z_velocity_display').style.display = 'none';
+    document.getElementById('z_axis_UI').style.display = 'none';
 }
 
 function showAxiscontrols() {
@@ -23,7 +28,7 @@ function showAxiscontrols() {
     if ((target_firmware == "grbl-embedded") || (target_firmware == "grbl")) {
         document.getElementById('control_zm_position_row').style.display = 'table-row';
     }
-    document.getElementById('z_velocity_display').style.display = 'inline';
+    document.getElementById('z_axis_UI').style.display = 'inline';
 
 }
 
@@ -244,6 +249,7 @@ function processMacroSave(answer) {
 function control_build_macro_button(index) {
     var content = "";
     var entry = control_macrolist[index];
+    content += "<div>";
     content += "<button class='btn fixedbutton " + control_macrolist[index].class + "' type='text' ";
     if (entry.glyph.length == 0) {
         content += "style='display:none'";
@@ -259,6 +265,15 @@ function control_build_macro_button(index) {
     }
     content += entry.name;
     content += "</button>";
+    content += "<button class='btn' style='padding-left: 0px;padding-right: 0px;";
+    if (entry.glyph.length == 0) {
+        content += " display:none";
+    }
+    content += "' ";
+    content += "onclick='selectFile (\"" + entry.target + "\",\"" + entry.filename + "\")'>";
+    content += get_icon_svg('triangle-right');
+    content += "</button>";
+    content += "</div>";
 
     return content;
 }
@@ -284,6 +299,11 @@ function control_build_macro_ui() {
     document.getElementById('Macro_list').innerHTML = content;
 }
 
+function selectFile(target, filename) {
+    currentFile = filename;
+    loadFile(currentFile);
+}
+
 function macro_command(target, filename) {
     var cmd = ""
     if (target == "ESP") {
@@ -297,6 +317,20 @@ function macro_command(target, filename) {
     SendPrinterCommand(cmd);
 }
 
+function selectRightPanel(panel, button) {
+    var cp = document.getElementById("controlPanel");
+    rightMenu.forEach(element => {
+        if(element == panel) {
+            var pos = element.style.left;
+            if (pos != "100%") element.style.left = "100%";
+            else element.style.left = (cp.getBoundingClientRect().left - element.getBoundingClientRect().width) + "px";
+            panel.style.top = button.getBoundingClientRect().top + "px";
+        } else {
+            element.style.left = "100%";
+        }
+    });
+}
+
 function showJoystick() {
     var pos = document.getElementById("JogUI").style.left;
     if (pos == "100px") document.getElementById("JogUI").style.left = "-500px";
@@ -304,23 +338,21 @@ function showJoystick() {
 }
 
 function showProbeDialog() {
-    var cp = document.getElementById("controlPanel");
-    if (document.getElementById("probeUI").style.left != "100%") document.getElementById("probeUI").style.left = "100%";
-    else document.getElementById("probeUI").style.left = (cp.getBoundingClientRect().left - document.getElementById("probeUI").getBoundingClientRect().width) + "px";
+    selectRightPanel(document.getElementById("probeUI"));
 }
+
 function showXaxisDialog() {
-    var pos = document.getElementById("x_axis_UI").style.left;
-    if (pos == "100px") document.getElementById("x_axis_UI").style.left = "-500px";
-    else document.getElementById("x_axis_UI").style.left = "100px";
+    selectRightPanel(document.getElementById("x_axis_UI"), document.getElementById("x_axis"));
 }
+
+function showYaxisDialog() {
+    selectRightPanel(document.getElementById("y_axis_UI"), document.getElementById("y_axis"));
+}
+
 function showZaxisDialog() {
-    var pos = document.getElementById("z_axis_UI").style.left;
-    if (pos == "100px") document.getElementById("z_axis_UI").style.left = "-500px";
-    else document.getElementById("z_axis_UI").style.left = "100px";
+    selectRightPanel(document.getElementById("z_axis_UI"), document.getElementById("z_axis"));
 }
 
 function showSpindleDialog() {
-    var pos = document.getElementById("spindle_UI").style.left;
-    if (pos == "100px") document.getElementById("spindle_UI").style.left = "-500px";
-    else document.getElementById("spindle_UI").style.left = "100px";
+    selectRightPanel(document.getElementById("spindle_UI"));
 }

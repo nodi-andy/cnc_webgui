@@ -101,7 +101,7 @@ function SPIFFSread(response) {
         //content = content.replace(/\\n/g, '&#13;');
         document.getElementById("commandEditor").value = content;
         document.getElementById("commandEditor").dispatchEvent(new Event("input"));
-    }
+    } else document.getElementById("commandEditor").value = "";
 }
 function SPIFFSsuccess(response) {
     //console.log(response);

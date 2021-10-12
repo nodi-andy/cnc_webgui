@@ -383,6 +383,7 @@ function grbl_process_msg(response) {
 function grbl_reset() {
     if (probe_progress_status != 0) probe_failed_notification();
     SendRealtimeCmd(String.fromCharCode(0x18));
+//    SendRealtimeCmd(String.fromCharCode(0x85));
 }
 
 function grbl_GetProbeResult(response) {

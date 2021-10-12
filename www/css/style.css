@@ -5,9 +5,9 @@ body {
 
 .form_control {
     height: 34px !important;
+    width: fit-content;
 }
 .fixedbutton{
-    width: 8em !important;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
@@ -192,6 +192,17 @@ body {
     border: none;
 }
 
+.rightDialog {
+    display: flex;
+    position: absolute;
+    left: 100%;
+    transition-property: left;
+    transition-duration: 1s;
+    backdrop-filter: blur(1px);
+    z-index: 10;
+    background-color: #555555;
+    height: fit-content;
+}
 
 .panel-footer1 {
     padding: 10px 15px;
@@ -360,13 +371,6 @@ w25 {
     }
 }
 
-
-@media (min-width: 800px) and (max-width: 1350px){
-    .fixedbutton {
-        width: 6em !important;
-    }
-}
-
 @media (min-width: 801px) and (max-width: 1600px) {
     .grid-container {
         grid-template-columns: 20% 80%;
@@ -388,12 +392,6 @@ w25 {
 @media (min-width: 3201px) and (max-width: 4000px) {
     .grid-container {
         grid-template-columns: 20% 20% 20% 20% 20%;
-    }
-}
-
-@media (min-width: 1600px) {
-    .fixedbutton {
-        width: 6em !important;
     }
 }
 
