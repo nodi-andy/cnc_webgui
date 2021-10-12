@@ -1,0 +1,35 @@
+%!Adobe-FontList 1.04
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Invalid
+OutlineFileName:\FUSLCI__.AFM
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:FU-engrave-condensed
+FamilyName:FU-engrave-condensed
+StyleName:engrave condensed
+FullName:FU-engrave-condensed
+WritingScript:Roman
+OutlineFileName:\FUSLCI__.PFB
+DataFormat:Plain
+UsesStandardEncoding:yes
+isCFF:no
+FileLength:23383
+WeightClass:400
+WidthClass:3
+AngleClass:0
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:PFM
+FontName:FU-engrave-condensed
+NumMMAxes:0
+OutlineFileName:\FUSLCI__.PFM
+FileLength:4678
+%EndFont
+

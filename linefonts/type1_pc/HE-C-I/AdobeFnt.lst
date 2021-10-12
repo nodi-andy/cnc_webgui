@@ -1,0 +1,35 @@
+%!Adobe-FontList 1.04
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Invalid
+OutlineFileName:\HESLCI__.AFM
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:HE-engrave-condensed
+FamilyName:HE-engrave-condensed
+StyleName:engrave condensed
+FullName:HE-engrave-condensed
+WritingScript:Roman
+OutlineFileName:\HESLCI__.PFB
+DataFormat:Plain
+UsesStandardEncoding:yes
+isCFF:no
+FileLength:22991
+WeightClass:400
+WidthClass:3
+AngleClass:0
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:PFM
+FontName:HE-engrave-condensed
+NumMMAxes:0
+OutlineFileName:\HESLCI__.PFM
+FileLength:700
+%EndFont
+

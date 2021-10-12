@@ -1,0 +1,71 @@
+MR Type Library 
+
+Allgemeine Bedingungen für den Erwerb von Nutzungsrechten an der
+PostScript(tm)-/TrueType(r)-Font-Software.
+Mit der Nutzung der Font-Software erklären Sie sich mit der
+Gültigkeit der nachstehenden Bedingungen einverstanden. Auf den
+in dieser Verpackung befindlichen Datenträgern befinden sich
+digitale Daten (Outline-Font-Programme und sogenannte Screen Fonts).
+Im nachfolgenden Text ist dieser Dateninhalt als »Software« bezeichnet. 
+
+1.Umfang des Nutzungsrechtes
+Mit der Bezahlung des Ihnen für diesen
+Datenträger berechneten Entgeltes an den autorisierten Händler erwerben
+Sie von Ihrem Händler ein zeitlich unbegrenztes, grundsätzlich nicht
+übertragbares Recht, diesen Datenträger in einem in Ihrem Betrieb
+aufgestellten Wiedergabegerät (z. B. Laserbelichter, Laserdrucker)
+und fünf in Ihrem Betrieb befindlichen Rechnern (PC, Workstation etc.)
+zu verwenden. Sobald Sie in Ihrem Betrieb mehr als ein Wiedergabegerät
+und fünf Rechner betreiben, auf denen Sie gleichzeitig die Font-Software
+zu nutzen wünschen, müssen Sie gegen entsprechenden Mehrpreis »Datenträger
+für Mehrfachnutzung« oder zusätzliche Datenträger mit einfachem
+Nutzungsrecht erwerben. Als Nachweis für den rechtmäßigen Erwerb des
+Nutzungsrechtes ist die Rechnung oder Quittung für das gezahlte Entgelt
+sorgfältig aufzubewahren. Es ist ausdrücklich verboten, den Dateninhalt
+zu anderen Zwecken, beispielsweise zur Herstellung von Datenträgern für
+andere Wiedergabegeräte, oder zur Herstellung von Vorlagen zur Reproduktion
+der Daten in anderen Verfahren und Formaten, zu verwenden. Jegliche
+Weitergabe der Datenträger oder des auf ihnen gespeicherten Dateninhalts
+an Dritte ist, vorbehaltlich der Sonderregelung in Ziffer 3., untersagt.
+Zulässig ist es jedoch, für den eigenen Bedarf Sicherheitskopien der
+Datenträger zur Verwendung auf einem der in Ihrem Betrieb aufgestellten
+Geräte herzustellen. Darüber hinaus verpflichten Sie sich, die auf dem
+Originaldatenträger und im Dateninhalt befindlichen Hinweise auf Schutz-
+und Urheberrechte unverändert auf die Kopien zu übertragen und diese
+ebenfalls mit den gleichen Hinweisen auf Schutz- und Urheberrechte zu
+versehen.
+
+2.Pflicht zur Rückgabe, Urheberrechte
+Sie müssen die Datenträger auf Verlangen, einschließlich sämtlicher
+hiervon gefertigten Kopien an MR Möbes & Ratajczak OHG zurückgeben, wenn Sie gegen
+die Vereinbarungen dieses Nutzungsvertrages verstoßen haben. Der Dateninhalt
+ist geistiges Eigentum der MR Möbes & Ratajczak OHG und ihrer Lizenzgeber
+bzw. Lizenznehmer. Sie erklären sich damit einverstanden, den Dateninhalt
+weder zu modifizieren noch zu konvertieren, ihn nicht mit anderer Software
+zu vermengen, Teile hieraus nicht zu extrahieren oder den Dateninhalt nicht
+zu dekompilieren. Warenzeichen dürfen nur zur Kennzeichnung des Dateninhalts
+und der Software unter Hinweis auf den Warenzeicheninhaber verwendet werden.
+
+3.Eingeschränkte Übertragbarkeit
+Sie können den Datenträger auf einen Dritten übertragen, sofern dieser Dritte
+auf einer Ablichtung dieser allgemeinen Bedingungen durch seine Unterschrift
+bestätigt, daß er sie für sich verbindlich anerkennt. Die mit dem
+Anerkennungsvermerk versehene Ablichtung der Bedingungen muß zusammen mit einer
+Erklärung von Ihnen, daß Sie keine Kopie der Datenträger zurückbehalten oder
+an Dritte weitergegeben haben, an MR Möbes & Ratajczak OHG eingesandt werden.
+Erst mit der schriftlichen Bestätigung der so angezeigten Übertragung durch
+MR Möbes & Ratajczak OHG wird diese rechtswirksam und geht das Nutzungsrecht
+auf den neuen Erwerber über. Mehrfachnutzungsrechte sind von jeder Übertragung
+auf Dritte ausgeschlossen.
+
+4.Gewährleistung
+Da dieser Vertrag ausschließlich den Umfang des Nutzungsrechtes betrifft, das
+Sie von Ihrem Händler erwerben, müssen Sie Ansprüche wegen Mängeln der Software
+gegenüber Ihrem Händler geltend machen.
+
+5.Gerichtsstand
+Soweit Sie Vollkaufmann, eine juristische Person des öffentlichen Rechts oder
+öffentlich rechtliches Sondervermögen sind, wird als Gerichtsstand Hannover
+vereinbart.
+
+März 1997

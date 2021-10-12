@@ -1,0 +1,35 @@
+%!Adobe-FontList 1.04
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Invalid
+OutlineFileName:\HESLEI__.AFM
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:HE-engrave-expanded
+FamilyName:HE-engrave-expanded
+StyleName:engrave expanded
+FullName:HE-engrave-expanded
+WritingScript:Roman
+OutlineFileName:\HESLEI__.PFB
+DataFormat:Plain
+UsesStandardEncoding:yes
+isCFF:no
+FileLength:23551
+WeightClass:400
+WidthClass:7
+AngleClass:0
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:PFM
+FontName:HE-engrave-expanded
+NumMMAxes:0
+OutlineFileName:\HESLEI__.PFM
+FileLength:4876
+%EndFont
+

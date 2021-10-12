@@ -1,0 +1,43 @@
+
+	
+MR einlinige Gravier - Schriften
+
+	Der ständige Fortschritt in der Software- und Hardware-Technik hat dazu 
+geführt, daß Gravier- und Fräs-Systeme immer häufiger und einfacher direkt 
+von DOS- und/oder Windows-Programmen aus angesteuert werden. Im 
+Gegensatz zu den bisher angewandten Software-Systemen stehen mit der 
+neuen Technik die ganzen Möglichkeiten der leistungsfähigen Grafik-
+Programme inklusive Schriften und Clipart dem Anwender zum Gravieren und 
+Fräsen zur Verfügung.
+
+	Mit den Gravier-Schriften von MR ist es dem Graveur möglich, sehr kleine Texte 
+bis max. 25 mm Versalhöhe ohne Ausräumroutinen von allen Windows-
+Gravierprogrammen aus in höchster Qualität zu produzieren. Durch doppeltes 
+Abfahren des zu gravierenden Textes entfällt selbst das lästige und 
+zeitintensive nachträgliche Entgraten.
+
+	Als Grundregel gilt, daß einlinige Schriften mit Fräsköpfen von 3 % bis 12 % 
+(Mittelwert: 8 % bis 10 %), vierlinige Schriften mit Fräsköpfen von 3 % bis 7 % 
+(Mittelwert: 5 % bis 6 %) der Versalhöhe gefräst werden.
+
+	In vielen Grafik- und Desktop Publishing-Programmen werden Textgrößen in 
+anderen Maßangaben  angegeben. Dabei muß folgende Umrechnung beachtet 
+werden:
+
+		Gewünschte Versalhöhe minus Fräse mal 1,5
+		Beispiel: gewünschte Versalhöhe: 10 mm
+		8 % von 10 mm = 0,8 mm (10 mm-0,8 mm) mal 1,5 = 13,8 mm 
+	Größenangabe
+
+		Erfolgt die Eingabe der Größe nur in typografischem Punkt, muß 
+	dieser Wert durch 0,3527 geteilt werden. (13,8 mm entsprechen 39 
+	typografischen Punkt.
+
+		Um zum Beispiel zu kontrollieren, ob 50 pt Kegelhöhe mit einer Fräse 
+	von 1 mm gefräst werden kann, wird folgendermaßen gerechnet:
+		50 pt Kegelhöhe entsprechen 17,64 mm. 17,64 geteilt durch 1,5 + 1 
+	mm Fräse ergibt eine Versalhöhe von 12,76 mm. 1 mm Fräserbreite 
+	sind 7,8 % von 12,76 mm. Die Versalhöhe und entspricht also den 
+	Prozentvorgaben für Fräserbreiten.
+
+

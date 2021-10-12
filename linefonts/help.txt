@@ -1,0 +1,39 @@
+
+	
+MR Singleline Engraving Fonts
+
+	The ongoing development of Hard- and Software makes it possible, that 
+engraving systems can be driven directly out of DTP applications instead out of 
+closed systems. Compairing them it is obvious that the new software packages 
+like CorelDraw and others are offering all their possibilities like the huge 
+amount of fonts and clipart also for engraving.
+
+	With our Sigleline Engraving Fonts you are able to engrave small texts up to 25 
+mm height with any engraving routines in the highest possible quality. 
+Because of driving the some of the lines two times their is even more time to 
+save because there is no more cleaning neccessary. 
+	
+	Here is a rule: Singleline Fonts will be engraved with engraving tools of 3 % – 
+12 % (average: 8 % – 10 %) and 4-line engraving fonts with engraving tools 
+of 3 % – 7 % (average: 5 % – 6 %).
+
+	In many of the design software packages texts will be displayed with different 
+measurements. To convert the dimensions:
+
+	Desired versal height minus thicknes of the engraving tool multiplied 
+by 1.5.
+		Example: desired height = 10 mm
+	8 % of 10 mm = 0,8 mm (10 mm - 0,8 mm) multiplied by 1,5 = 13,8 
+mm height
+
+	In the case that the measuring is typographic points, you have to 
+devide the points by 0,3527. (13,8 mm height means 39 typographic 
+points.
+
+	To check if a 50 pt Height could be engraved with a tool of 1 mm, do 
+as follows:
+	50 pt height means 17,64 mm. 17,64 devided by 1,5 + 1mm thickness 
+of the engraving tool means a versal height of 12,76 mm. 1 mm toll 
+thickness means 7,8 % of 12,76 mm height. 
+
+
