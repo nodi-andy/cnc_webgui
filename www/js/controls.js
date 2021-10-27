@@ -305,6 +305,7 @@ function selectFile(target, filename) {
 }
 
 function macro_command(target, filename) {
+    SendRealtimeCmd("#");
     var cmd = ""
     if (target == "ESP") {
         cmd = "[ESP700]" + filename;
@@ -338,7 +339,7 @@ function showJoystick() {
 }
 
 function showProbeDialog() {
-    selectRightPanel(document.getElementById("probeUI"));
+    selectRightPanel(document.getElementById("probeUI"), document.getElementById("btnProbe"));
 }
 
 function showXaxisDialog() {
@@ -354,5 +355,5 @@ function showZaxisDialog() {
 }
 
 function showSpindleDialog() {
-    selectRightPanel(document.getElementById("spindle_UI"));
+    selectRightPanel(document.getElementById("spindle_UI"), document.getElementById("btnSpindle"));
 }

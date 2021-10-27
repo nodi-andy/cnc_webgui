@@ -313,8 +313,11 @@ function process_grbl_status(response) {
             grbl_error_msg = "";
         }
         document.getElementById('grbl_status_text').innerHTML = translate_text_item(grbl_error_msg);
-        if (tab2.toLowerCase().startsWith("alarm")) document.getElementById('clear_status_btn').style.display = "table-row";
-        else document.getElementById('clear_status_btn').style.display = "none";
+        if (tab2.toLowerCase().startsWith("alarm")) {
+            document.getElementById('clear_status_btn').style.animation = "pulse 1s linear infinite";
+        } else {
+            document.getElementById('clear_status_btn').style.animation = "";
+        }
     }
 }
 

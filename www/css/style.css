@@ -194,6 +194,7 @@ body {
 
 .rightDialog {
     display: flex;
+    flex-direction: column;
     position: absolute;
     left: 100%;
     transition-property: left;

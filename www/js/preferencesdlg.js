@@ -397,18 +397,18 @@ function applypreferenceslist() {
         //document.getElementById('monitor_enable_verbose_mode').checked = true;
         Monitor_check_verbose_mode();
     } //else document.getElementById('monitor_enable_verbose_mode').checked = false;
-    if (preferenceslist[0].enable_temperatures_panel === 'true') {
+    /*if (preferenceslist[0].enable_temperatures_panel === 'true') {
         document.getElementById('temperaturesPanel').style.display = 'block';
-    } else {
+    } else {*/
         document.getElementById('temperaturesPanel').style.display = 'none';
-        on_autocheck_temperature(false);
-    }
+/*        on_autocheck_temperature(false);
+    }*/
 
-    if (preferenceslist[0].enable_extruder_panel === 'true') document.getElementById('extruderPanel').style.display = 'flex';
-    else document.getElementById('extruderPanel').style.display = 'none';
+    /*if (preferenceslist[0].enable_extruder_panel === 'true') document.getElementById('extruderPanel').style.display = 'flex';
+    else */document.getElementById('extruderPanel').style.display = 'none';
 
-    if (preferenceslist[0].enable_files_panel === 'true') document.getElementById('filesPanel').style.display = 'flex';
-    else document.getElementById('filesPanel').style.display = 'none';
+    /*if (preferenceslist[0].enable_files_panel === 'true') document.getElementById('filesPanel').style.display = 'flex';
+    else document.getElementById('filesPanel').style.display = 'none';*/
     
     if (preferenceslist[0].has_TFT_SD === 'true'){
          document.getElementById('files_refresh_tft_sd_btn').style.display = 'flex';

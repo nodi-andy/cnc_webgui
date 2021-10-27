@@ -1,4 +1,114 @@
-<div class="tab" id="mainuitablinks" style="text-align: center;">
+<div class="tab" id="mainuitablinks" style="display: flex;">
+ 
+    <div class="navbar-header" style="display:inline-block;float:none;">
+        <span class="navbar-brand">
+            <span>Nodi.NC</span>
+        </span>
+    </div>
+
+    <div class="position_text" style="flex-direction: row;">
+        <div class="label label-default" style="display: flex;"><span id="control_x_position_label">X</span>:<span id="control_x_position">&nbsp;</span></div>
+        <div class="label label-default" style="display: flex;"><span id="control_xm_position_label">Xm</span>:<span id="control_xm_position">&nbsp;</span></div>
+    </div>
+    <div class="position_text">
+        <div class="label label-default" style="display: flex;"><span id="control_y_position_label">Y</span>:<span id="control_y_position">&nbsp;</span></div>
+        <div class="label label-default" style="display: flex;"><span id="control_yt_position_label">Ym</span>:<span id="control_ym_position">&nbsp;</span></div>
+    </div>
+    <div class="position_text" id="control_z_position_display">
+        <div class="label label-default" style="display: flex;"><span id="control_z_position_label">Z</span>:<span id="control_z_position">&nbsp;</span></div>
+        <div class="label label-default" style="display: flex;"><span id="control_zm_position_label">Zm</span>:<span id="control_zm_position">&nbsp;</span></div>
+    </div>
+
+    <div  style="float: left;" class="position-container hide_it" id="positions_labels2">
+        <div class="position_text hide_it" id="control_a_position_display">
+            <table>
+                <tr>
+                    <td>
+                        <button class="btn btn-xs btn-default" id="zero_a_btn" onclick="SendZerocommand('A0')">&Oslash;</button>
+                    </td>
+                    <td>
+                        <span class="label label-default"><span id="control_a_position_label">Aw</span>:<span id="control_a_position">&nbsp;</span></span>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+                <tr id="control_am_position_row">
+                    <td></td>
+                    <td>
+                        <table>
+                            <tr style="height: 5px;">
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span class="label label-default"><span id="control_am_position_label">Am</span>:<span id="control_am_position">&nbsp;</span></span>
+                    </td>
+                </tr>
+            </table>
+            </td>
+            </tr>
+            </table>
+        </div>
+        <div class="position_text hide_it" id="control_b_position_display">
+            <table>
+                <tr>
+                    <td>
+                        <button class="btn btn-xs btn-default" id="zero_b_btn" onclick="SendZerocommand('B0')">&Oslash;</button>
+                    </td>
+                    <td>
+                        <span class="label label-default"><span id="control_b_position_label">Bw</span>:<span id="control_b_position">&nbsp;</span></span>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+                <tr id="control_bm_position_row">
+                    <td></td>
+                    <td>
+                        <table>
+                            <tr style="height: 5px;">
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span class="label label-default"><span id="control_bt_position_label">Bm</span>:<span id="control_bm_position">&nbsp;</span></span>
+                    </td>
+                </tr>
+            </table>
+            </td>
+            </tr>
+            </table>
+        </div>
+        <div class="position_text hide_it" id="control_c_position_display">
+            <table>
+                <tr>
+                    <td>
+                        <button class="btn btn-xs btn-default" id="zero_c_btn" onclick="SendZerocommand('C0')">&Oslash;</button>
+                    </td>
+                    <td>
+                        <span class="label label-default"><span id="control_c_position_label">Cw</span>:<span id="control_c_position">&nbsp;</span></span>
+                    </td>
+                </tr>
+                <tr id="control_zm_position_row">
+                    <td></td>
+                    <td>
+                        <table>
+                            <tr style="height: 5px;">
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span class="label label-default"><span id="control_cm_position_label">Cm</span>:<span id="control_cm_position">&nbsp;</span></span>
+                    </td>
+                </tr>
+            </table>
+            </td>
+            </tr>
+            </table>
+        </div>
+    </div>
+
+    <div style="display: flex; flex-grow: 6; justify-content: center;">
+        <div id="grbl_status" class="status_text" ></div>
+        <div style="text-align: left; height:20px;" id="grbl_status_text"></div>
+    </div>
+
     <button class="tablinks" onclick="opentab(event, 'maintab', 'mainuitabscontent', 'mainuitablinks')" id="maintablink">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M2 13.5V7h1v6.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V7h1v6.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5zm11-11V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
@@ -18,12 +128,6 @@
             <path d="M1 0 0 1l2.2 3.081a1 1 0 0 0 .815.419h.07a1 1 0 0 1 .708.293l2.675 2.675-2.617 2.654A3.003 3.003 0 0 0 0 13a3 3 0 1 0 5.878-.851l2.654-2.617.968.968-.305.914a1 1 0 0 0 .242 1.023l3.356 3.356a1 1 0 0 0 1.414 0l1.586-1.586a1 1 0 0 0 0-1.414l-3.356-3.356a1 1 0 0 0-1.023-.242L10.5 9.5l-.96-.96 2.68-2.643A3.005 3.005 0 0 0 16 3c0-.269-.035-.53-.102-.777l-2.14 2.141L12 4l-.364-1.757L13.777.102a3 3 0 0 0-3.675 3.68L7.462 6.46 4.793 3.793a1 1 0 0 1-.293-.707v-.071a1 1 0 0 0-.419-.814L1 0zm9.646 10.646a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708zM3 11l.471.242.529.026.287.445.445.287.026.529L5 13l-.242.471-.026.529-.445.287-.287.445-.529.026L3 15l-.471-.242L2 14.732l-.287-.445L1.268 14l-.026-.529L1 13l.242-.471.026-.529.445-.287.287-.445.529-.026L3 11z"/>
           </svg>
     </button>
-    <div class="navbar-header" style="display:inline-block;float:none;">
-        <span class="navbar-brand">
-            <span>Nodi.NC</span>
-        </span>
-    </div>
-
     <button class="tablinks" style="float:right;" onclick="showpreferencesdlg()" id="settingtablink">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-gear" viewBox="0 0 16 16">
             <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z"/>
