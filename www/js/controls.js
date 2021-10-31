@@ -4,8 +4,7 @@ var currentFile = "";
 var rightMenu = [   document.getElementById("probeUI"),
                     document.getElementById("x_axis_UI"),
                     document.getElementById("y_axis_UI"),
-                    document.getElementById("z_axis_UI"),
-                    document.getElementById("spindle_UI")];
+                    document.getElementById("z_axis_UI")];
 
 function init_controls_panel() {
     loadmacrolist();
@@ -24,7 +23,7 @@ function showAxiscontrols() {
     document.getElementById('CornerZ').style.display = 'none';
     document.getElementById('JogBar').style.display = 'block';
     document.getElementById('HomeZ').style.display = 'block';
-    document.getElementById('control_z_position_display').style.display = 'block';
+    document.getElementById('control_z_position_display').style.display = 'flex';
     if ((target_firmware == "grbl-embedded") || (target_firmware == "grbl")) {
         document.getElementById('control_zm_position_row').style.display = 'table-row';
     }
@@ -249,11 +248,14 @@ function processMacroSave(answer) {
 function control_build_macro_button(index) {
     var content = "";
     var entry = control_macrolist[index];
-    content += "<div>";
-    content += "<button class='btn fixedbutton " + control_macrolist[index].class + "' type='text' ";
+    content += "<div class='btn fixedbutton " + control_macrolist[index].class + "' type='text' ";
+    
     if (entry.glyph.length == 0) {
         content += "style='display:none'";
+    } else {
+        content += "style='display:flex; flex: 1;'";
     }
+
     content += "onclick='macro_command (\"" + entry.target + "\",\"" + entry.filename + "\")'";
     content += "><span style='position:relative; top:3px;'>";
     if (entry.glyph.length == 0) {
@@ -264,15 +266,17 @@ function control_build_macro_button(index) {
         content += "&nbsp;";
     }
     content += entry.name;
-    content += "</button>";
-    content += "<button class='btn' style='padding-left: 0px;padding-right: 0px;";
+    content += "</div>";
+    content += "<div class='btn fixedbutton btn-default' style='padding-left: 0px;padding-right: 0px;";
     if (entry.glyph.length == 0) {
         content += " display:none";
+    } else {
+        content += " display:flex";
     }
     content += "' ";
     content += "onclick='selectFile (\"" + entry.target + "\",\"" + entry.filename + "\")'>";
     content += get_icon_svg('triangle-right');
-    content += "</button>";
+    content += "</div>";
     content += "</div>";
 
     return content;

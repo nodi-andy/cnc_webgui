@@ -24,7 +24,7 @@
       var secondary_sd = "/sd/";
     </script>
     <!--removeIf(cleanheader)-->
-    <link href="css/bootstrap.css" rel="stylesheet" />
+    <!-- <link href="css/bootstrap.css" rel="stylesheet" /> -->
     <link href="css/menu.css" rel="stylesheet" />
     <link href="css/tabs.css" rel="stylesheet" />
     <link href="css/modaldlg.css" rel="stylesheet" />
@@ -46,18 +46,18 @@
     <file-include w3-include-html="'sub/probe_dlg.html'"></file-include>
 
     
-    <div id = "main_ui" style="display: flex; flex-direction: column; width: 100%; height: 100%;">
+    <div id = "main_ui" style="flex-direction: column; width: 100%; height: 100%;">
       <file-include w3-include-html="'sub/tab_bar.html'"></file-include>
               
 
       <!-- content -->
-      <div id="mainuitabscontent" style="width: 100%; display: flex; flex: 1; overflow: auto; ">
+      <div id="mainuitabscontent" style="width: 100%; flex: 1; overflow: auto; ">
         <file-include w3-include-html="'sub/cameratab.html'"></file-include>
         <file-include w3-include-html="'sub/configtab.html'"></file-include>
         <file-include w3-include-html="'sub/settingstab.html'"></file-include>
-        <div id="maintab" class="tabcontent" style="display: flex; flex: 1;">
+        <div id="maintab" class="tabcontent" style="flex: 1;">
           <file-include w3-include-html="'sub/macro.html'"></file-include>
-          <div id="maintab" class="tabcontent" style="display: flex; flex: 1; flex-wrap: wrap;">
+          <div id="maintab" class="tabcontent" style="flex: 1; flex-wrap: wrap;">
             <file-include w3-include-html="'sub/files.html'"></file-include>
             <file-include w3-include-html="'sub/temperaturepanel.html'"></file-include>
             <file-include w3-include-html="'sub/extruderpanel.html'"></file-include>

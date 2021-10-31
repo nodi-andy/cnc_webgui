@@ -197,24 +197,14 @@ function build_HTML_setting_list(filter) {
     var content = "";
     current_setting_filter = filter;
     document.getElementById(current_setting_filter + "_setting_filter").checked = true;
-    content += "<tr>";
-    content += "<td style='vertical-align:middle'>";
-    content += "Language"
-    content += "</td>";
-    content += "<td style='vertical-align:middle'>";
+    content += "<div>Language</div>";
     content += "<div id='languageList'> </div>";
-    content += "</td>";
-    content += "</tr>\n";
     for (var i = 0; i < setting_configList.length; i++) {
         if ((setting_configList[i].F.trim().toLowerCase() == filter) || (filter == "all")) {
-            content += "<tr>";
-            content += "<td style='vertical-align:middle'>";
+            content += "<div style='vertical-align:middle'>";
             content += translate_text_item(setting_configList[i].label, true);
-            content += "</td>";
-            content += "<td style='vertical-align:middle'>";
-            content += "<table><tr><td>" + build_control_from_index(i) + "</td></tr></table>";
-            content += "</td>";
-            content += "</tr>\n";
+            content += "</div>";
+            content += "<div>" + build_control_from_index(i) + "</div>\n";
         }
     }
     if (content.length > 0) document.getElementById('settings_list_data').innerHTML = content;

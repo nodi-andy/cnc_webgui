@@ -1,47 +1,17 @@
 <div id="probeUI" class = "rightDialog">
 
-    <div style="display: flex;">
-        <div class="input-group">
-            <span class="input-group-addon form_control"><span translate>Max travel</span>:</span>
-            <input class="hide_it" />
-        </div>
-
-        <div class="input-group">
-            <span class="input-group-addon hide_it"></span>
-            <input class="form-control w6" type="number" min="1" id="probemaxtravel" onchange="onprobemaxtravelChange()" />
-            <span class="input-group-addon hide_it"></span>
-        </div>
-        <div class="input-group">
-            <input class="hide_it"></input>
-            <span class="input-group-addon form_control" translate>mm</span>
-        </div>
+    <div class="input-group">
+        <span class="input-group-addon form_control"><span translate>Max travel [mm]</span>:</span>
+        <input class="form-control w6" type="number" min="1" id="probemaxtravel" onchange="onprobemaxtravelChange()" />
     </div>
     <div class="input-group">
-        <span class="input-group-addon form_control"><span translate>Feed rate</span>:</span>
-        <input class="hide_it" />
-    </div>
-    <div class="input-group">
-        <span class="input-group-addon hide_it"></span>
+        <span class="input-group-addon form_control"><span translate>Feed rate [mm/min]</span>:</span>
         <input class="form-control w6" type="number" min="1" id="probefeedrate" onchange="onprobefeedrateChange()" />
-        <span class="input-group-addon hide_it"></span>
-    </div>
-    <div class="input-group">
-        <input class="hide_it"></input>
-        <span class="input-group-addon form_control" translate>mm/min</span>
     </div>
 
     <div class="input-group">
-        <span class="input-group-addon form_control"><span translate>Plate thickness</span>:</span>
-        <input class="hide_it" />
-    </div>
-    <div class="input-group">
-        <span class="input-group-addon hide_it"></span>
+        <span class="input-group-addon form_control"><span translate>Plate thickness [mm]</span>:</span>
         <input class="form-control w5" type="number" min="0" id="probetouchplatethickness" onchange="onprobetouchplatethicknessChange()" />
-        <span class="input-group-addon hide_it"></span>
-    </div>
-    <div class="input-group">
-        <input class="hide_it"></input>
-        <span class="input-group-addon form_control" translate>mm</span>
     </div>
 
     <div nowrap translate style="vertical-align: middle; "><span translate>Touch status</span>:</div>
@@ -54,20 +24,23 @@
     <button class="btn btn-primary" id="probingbtn" onclick="StartProbeProcess();" translate>Start Probe</button>
 </div>
 
-<div id="x_axis_UI" class = "rightDialog">
-    <div style="display: flex; flex-direction: row;">
-        <div class="input-group-addon form_control">Speed:</div>
-        <input class="form-control w8" type="number" min="1" id="control_x_velocity" onchange="onXvelocityChange()" />
-        <div class="input-group-addon form_control" translate>mm/min</div>
+<div id="x_axis_UI" class = "rightDialog" style = "left: 100%;">
+    <div style="flex-direction: row;">
+        <div class="btn btn-lg btn-default" id="zero_x_btn" onclick="SendZerocommand('X0')">
+            Zero
+        </div>
+        <div class="btn btn-lg btn-default" onclick="SendHomecommand('G28 X0')">
+            Home
+        </div>
     </div>
-    <button class="btn btn-lg btn-default" id="zero_x_btn" onclick="SendZerocommand('X0')">&Oslash;</button>
-    <div>
-        <button onclick="SendHomecommand('G28 X0')">Home</button>
+    <div style="flex-direction: row;">
+        <div class="input-group-addon form_control">Speed [mm/min]:</div>
+        <input class="form-control w8" type="number" min="1" id="control_x_velocity" onchange="onXvelocityChange()" />
     </div>
 </div>
 
 <div id="y_axis_UI" class = "rightDialog">
-    <div style="display: flex; flex-direction: row;">
+    <div style="flex-direction: row;">
         <div class="input-group-addon form_control">Speed:</div>
         <input class="form-control w8" type="number" min="1" id="control_y_velocity" onchange="onYvelocityChange()" />
         <div class="input-group-addon form_control" translate>mm/min</div>
@@ -79,7 +52,7 @@
 </div>
 
 <div id="z_axis_UI" class = "rightDialog">
-    <div style="display: flex; flex-direction: row;">
+    <div style="flex-direction: row;">
         <div class="input-group-addon form_control">Speed:</div>
         <input class="form-control w8" type="number" min="1" id="control_z_velocity" onchange="onZvelocityChange()" />
         <div class="input-group-addon form_control" translate>mm/min</div>
@@ -91,7 +64,7 @@
 </div>
 
 <div id="spindle_UI" class = "rightDialog">
-    <div style="display: flex;">
+    <div>
         <button class="btn btn-default" onclick="SendRealtimeCmd(String.fromCharCode(0x92,0x0));" style="padding: 5px 4px 0 5px;">
             <table>
                 <tr>
@@ -164,7 +137,7 @@
             </table>
         </button>
     </div>
-    <div style="display: flex;">
+    <div>
         <button class="btn btn-default" onclick="SendRealtimeCmd(String.fromCharCode(0x9E,0x0));" style="padding: 5px 4px 0 5px;">
             <table>
                 <tr>

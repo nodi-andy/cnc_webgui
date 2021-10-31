@@ -1,7 +1,7 @@
-<div id="controlPanel" style ="display: flex; flex-direction: column; justify-content: center; gap: 12px; z-index: 20; background-color: darkslategray;">
+<div id="controlPanel" style ="flex-direction: column; justify-content: center; gap: 12px; z-index: 20; background-color: darkslategray;">
 
     <div>
-        <button id="clear_status_btn" class="btn fixedbutton btn-default" style="width: 100%;" onclick="SendPrinterCommand('$X', true, null,null, 114, 1);" style="padding: 5px 5px 0 5px;">
+        <button id="clear_status_btn" class="btn fixedbutton btn-default" style="width: 100%;" onclick="SendPrinterCommand('$X', true, null,null, 114, 1); get_status();" style="padding: 5px 5px 0 5px;">
             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" class="bi bi-exclamation-triangle" viewBox="0 0 16 16">
                 <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
                 <path d="M7.002 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 5.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995z"/>
@@ -55,13 +55,31 @@
     </div>
 
     <div>
-        <button id="btnSpindle"  class="btn fixedbutton btn-default" style="width: 100%;" onclick="showSpindleDialog()">
-            <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" viewBox="132 97 60 98">
-                 <polygon transform="rotate(89.40613555908203 163.01202392578122,182.76109313964844) " stroke-width="null" points="174.1668574708945,182.7610886418791 151.85718034687108,209.38065931487864 151.85718034687108,156.14151796887955 174.1668574708945,182.7610886418791 " fill="#000000" id="svg_1"/>
-                 <line fill="none" stroke-width="9" x1="139.92969" y1="164.48437" x2="184.03907" y2="156.23437" id="svg_2" stroke="#000000"/>
-                 <line fill="none" stroke-width="9" x1="139.92969" y1="146.17969" x2="184.03907" y2="137.92969" stroke="#000000" id="svg_5"/>
-                 <line fill="none" stroke-width="9" x1="139.92969" y1="130.14844" x2="184.03907" y2="121.89844" stroke="#000000" id="svg_6"/>
-                 <line fill="none" stroke-width="9" x1="139.92969" y1="114.11719" x2="184.03907" y2="105.86719" stroke="#000000" id="svg_7"/>
+        <button id="btnSpindle"  class="btn fixedbutton btn-default" style="width: 100%;" onclick="SendRealtimeCmd(String.fromCharCode(0x9E,0x0));">
+            <svg width="1.3em" height="1.4em" viewBox="0 0 1300 1200">
+                <g transform="translate(50,1200) scale(1, -1)">
+                    <path fill="black" d="M600 1186q119 0 227.5 -46.5t187 -125t125 -187t46.5 -227.5t-46.5 -227.5t-125 -187t-187 -125t-227.5 -46.5t-227.5 46.5t-187 125t-125 187t-46.5 227.5t46.5 227.5t125 187t187 125t227.5 46.5zM600 1022q-115 0 -212 -56.5t-153.5 -153.5t-56.5 -212t56.5 -212 t153.5 -153.5t212 -56.5t212 56.5t153.5 153.5t56.5 212t-56.5 212t-153.5 153.5t-212 56.5zM600 794q80 0 137 -57t57 -137t-57 -137t-137 -57t-137 57t-57 137t57 137t137 57z"></path>
+                </g>
+            </svg>
+        </button>
+    </div>
+
+    <div>
+        <button id="btnFlood"  class="btn fixedbutton btn-default" style="width: 100%;" onclick="SendRealtimeCmd(String.fromCharCode(0xA0,0x0));">
+            <svg width="1.3em" height="1.4em" viewBox="0 0 1300 1200">
+                <g transform="translate(50,1200) scale(1, -1)">
+                    <path fill="black" d="M554 1295q21 -72 57.5 -143.5t76 -130t83 -118t82.5 -117t70 -116t49.5 -126t18.5 -136.5q0 -71 -25.5 -135t-68.5 -111t-99 -82t-118.5 -54t-125.5 -23q-84 5 -161.5 34t-139.5 78.5t-99 125t-37 164.5q0 69 18 136.5t49.5 126.5t69.5 116.5t81.5 117.5t83.5 119 t76.5 131t58.5 143zM344 710q-23 -33 -43.5 -70.5t-40.5 -102.5t-17 -123q1 -37 14.5 -69.5t30 -52t41 -37t38.5 -24.5t33 -15q21 -7 32 -1t13 22l6 34q2 10 -2.5 22t-13.5 19q-5 4 -14 12t-29.5 40.5t-32.5 73.5q-26 89 6 271q2 11 -6 11q-8 1 -15 -10z"></path>
+                </g>
+            </svg>
+        </button>
+    </div>
+    <div>
+        <button id="btnMist"  class="btn fixedbutton btn-default" style="width: 100%;" onclick="SendRealtimeCmd(String.fromCharCode(0xA1,0x0));">
+            <svg width="1.3em" height="1.4em" viewBox="0 0 1300 1200">
+                <g transform="translate(50,1200) scale(1, -1)">
+                    <path fill="black" d="M503 1089q110 0 200.5 -59.5t134.5 -156.5q44 14 90 14q120 0 205 -86.5t85 -207t-85 -207t-205 -86.5h-128v250q0 21 -14.5 35.5t-35.5 14.5h-300q-21 0 -35.5 -14.5t-14.5 -35.5v-250h-222q-80 0 -136 57.5t-56 136.5q0 69 43 122.5t108 67.5q-2 19 -2 37q0 100 49 185 t134 134t185 49zM525 500h150q10 0 17.5 -7.5t7.5 -17.5v-275h137q21 0 26 -11.5t-8 -27.5l-223 -244q-13 -16 -32 -16t-32 16l-223 244q-13 16 -8 27.5t26 11.5h137v275q0 10 7.5 17.5t17.5 7.5z"></path>
+                    <circle cx="600" cy="450" r="300" stroke="black" fill="black"></circle>
+                </g>
             </svg>
         </button>
     </div>

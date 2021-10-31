@@ -1,4 +1,4 @@
-<div class="tab" id="mainuitablinks" style="display: flex;">
+<div class="tab" id="mainuitablinks">
  
     <div class="navbar-header" style="display:inline-block;float:none;">
         <span class="navbar-brand">
@@ -6,17 +6,17 @@
         </span>
     </div>
 
-    <div class="position_text" style="flex-direction: row;">
-        <div class="label label-default" style="display: flex;"><span id="control_x_position_label">X</span>:<span id="control_x_position">&nbsp;</span></div>
-        <div class="label label-default" style="display: flex;"><span id="control_xm_position_label">Xm</span>:<span id="control_xm_position">&nbsp;</span></div>
+    <div class="position_text">
+        <div class="label label-default"><span id="control_x_position_label">X</span>:<span id="control_x_position">&nbsp;</span></div>
+        <div class="label label-default"><span id="control_xm_position_label">Xm</span>:<span id="control_xm_position">&nbsp;</span></div>
     </div>
     <div class="position_text">
-        <div class="label label-default" style="display: flex;"><span id="control_y_position_label">Y</span>:<span id="control_y_position">&nbsp;</span></div>
-        <div class="label label-default" style="display: flex;"><span id="control_yt_position_label">Ym</span>:<span id="control_ym_position">&nbsp;</span></div>
+        <div class="label label-default"><span id="control_y_position_label">Y</span>:<span id="control_y_position">&nbsp;</span></div>
+        <div class="label label-default"><span id="control_yt_position_label">Ym</span>:<span id="control_ym_position">&nbsp;</span></div>
     </div>
     <div class="position_text" id="control_z_position_display">
-        <div class="label label-default" style="display: flex;"><span id="control_z_position_label">Z</span>:<span id="control_z_position">&nbsp;</span></div>
-        <div class="label label-default" style="display: flex;"><span id="control_zm_position_label">Zm</span>:<span id="control_zm_position">&nbsp;</span></div>
+        <div class="label label-default"><span id="control_z_position_label">Z</span>:<span id="control_z_position">&nbsp;</span></div>
+        <div class="label label-default"><span id="control_zm_position_label">Zm</span>:<span id="control_zm_position">&nbsp;</span></div>
     </div>
 
     <div  style="float: left;" class="position-container hide_it" id="positions_labels2">
@@ -104,9 +104,9 @@
         </div>
     </div>
 
-    <div style="display: flex; flex-grow: 6; justify-content: center;">
-        <div id="grbl_status" class="status_text" ></div>
-        <div style="text-align: left; height:20px;" id="grbl_status_text"></div>
+    <div style="flex-grow: 6; justify-content: center; flex-direction: column;">
+        <div id = "grbl_status" class = "status_text" style = "justify-content: center;"></div>
+        <div id = "grbl_status_text" style = "justify-content: center; text-align: left; height:20px;" ></div>
     </div>
 
     <button class="tablinks" onclick="opentab(event, 'maintab', 'mainuitabscontent', 'mainuitablinks')" id="maintablink">

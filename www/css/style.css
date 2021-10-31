@@ -3,6 +3,10 @@ body {
     font-size: 14px;
 }
 
+div {
+    display: flex;
+}
+
 .form_control {
     height: 34px !important;
     width: fit-content;
@@ -319,6 +323,7 @@ w25 {
 .position_text {
     font-size: 16px;
     font-weight: bold;
+    flex-direction: column;
 }
 
 .macro-container {

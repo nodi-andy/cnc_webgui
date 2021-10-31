@@ -51,7 +51,5 @@ div.tab button.active {
 
 /* Style the tab content */
 .tabcontent {
-    display: none;
     padding: 2px 2px;
-
 }
