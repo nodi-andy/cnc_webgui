@@ -248,7 +248,9 @@ function processMacroSave(answer) {
 function control_build_macro_button(index) {
     var content = "";
     var entry = control_macrolist[index];
-    content += "<div class='btn fixedbutton " + control_macrolist[index].class + "' type='text' ";
+    content += "<div class='shadowed'>";
+    
+    content += "<div class='btn " + control_macrolist[index].class + "' type='text' ";
     
     if (entry.glyph.length == 0) {
         content += "style='display:none'";
@@ -267,7 +269,8 @@ function control_build_macro_button(index) {
     }
     content += entry.name;
     content += "</div>";
-    content += "<div class='btn fixedbutton btn-default' style='padding-left: 0px;padding-right: 0px;";
+
+    content += "<div class='btn btn-def' style='padding-left: 0px;padding-right: 0px;";
     if (entry.glyph.length == 0) {
         content += " display:none";
     } else {
@@ -283,20 +286,18 @@ function control_build_macro_button(index) {
 }
 
 function control_build_macro_ui() {
-    var content = "<button class='btn btn-primary' onclick='showmacrodlg(processMacroSave)'>";
-    content += "<span class='badge'>";
-    content += "<svg width='1.3em' height='1.2em' viewBox='0 0 1300 1200'>";
+    var content = "<div class='btn btn-default shadowed' style='justify-content: center;' onclick='showmacrodlg(processMacroSave)'>";
+    content += "<svg width='24px' height='24px' viewBox='0 0 1300 1200'>";
     content += "<g transform='translate(50,1200) scale(1, -1)'>";
     content += "<path  fill='currentColor' d='M407 800l131 353q7 19 17.5 19t17.5 -19l129 -353h421q21 0 24 -8.5t-14 -20.5l-342 -249l130 -401q7 -20 -0.5 -25.5t-24.5 6.5l-343 246l-342 -247q-17 -12 -24.5 -6.5t-0.5 25.5l130 400l-347 251q-17 12 -14 20.5t23 8.5h429z'></path>";
     content += "</g>";
     content += "</svg>";
-    content += "<svg width='1.3em' height='1.2em' viewBox='0 0 1300 1200'>";
+    content += "<svg width='24px' height='24px' viewBox='0 0 1300 1200'>";
     content += "<g transform='translate(50,1200) scale(1, -1)'>";
     content += "<path  fill='currentColor' d='M1011 1210q19 0 33 -13l153 -153q13 -14 13 -33t-13 -33l-99 -92l-214 214l95 96q13 14 32 14zM1013 800l-615 -614l-214 214l614 614zM317 96l-333 -112l110 335z'></path>";
     content += "</g>";
     content += "</svg>";
-    content += "</span>";
-    content += "</button>";
+    content += "</div>";
     for (var i = 0; i < 9; i++) {
         content += control_build_macro_button(i);
     }

@@ -23,7 +23,7 @@ function build_color_selection(index) {
     content += "</svg>";
     content += "</button>";
     content += "<div class='dropmenu-content dropmenu-content-" + menu_pos + "' style='min-width:auto; padding-left: 4px;padding-right: 4px;'>";
-    content += "<button class='btn btn-default' onclick='macro_select_color(event, \"default\" ," + index + ")'>&nbsp;</button>";
+    content += "<button class='btn btn-def' onclick='macro_select_color(event, \"default\" ," + index + ")'>&nbsp;</button>";
     content += "<button class='btn btn-primary' onclick='macro_select_color(event, \"primary\" ," + index + ")'>&nbsp;</button>";
     content += "<button class='btn btn-info' onclick='macro_select_color(event, \"info\" ," + index + ")'>&nbsp;</button>";
     content += "<button class='btn btn-warning' onclick='macro_select_color(event, \"warning\" ," + index + ")'>&nbsp;</button>";
@@ -39,7 +39,7 @@ function build_target_selection(index) {
     var menu_pos = "down";
     if (index > 3) menu_pos = "up";
     content += "<div class='dropdownselect'  id='macro_target_line" + index + "'>";
-    content += "<button class='btn btn-default' style='min-width:5em;' onclick='showhide_drop_menu(event)'><span>" + entry.target + "</span>";
+    content += "<button class='btn btn-def' style='min-width:5em;' onclick='showhide_drop_menu(event)'><span>" + entry.target + "</span>";
     content += "<svg width='0.8em' height='0.8em' viewBox='0 0 1300 1200' style='pointer-events:none'>";
     content += "<g transform='translate(50,1200) scale(1, -1)'>";
     content += "<path  fill='currentColor' d='M100 900h1000q41 0 49.5 -21t-20.5 -50l-494 -494q-14 -14 -35 -14t-35 14l-494 494q-29 29 -20.5 50t49.5 21z'></path>";
@@ -71,7 +71,7 @@ function build_glyph_selection(index) {
     content += "<div class='dropmenu-content  dropmenu-content-" + menu_pos + "' style='min-width:30em'>";
     for (var key in list_icon) {
         if (key != "plus") {
-            content += "<button class='btn btn-default btn-xs' onclick='macro_select_glyph(event, \"" + key + "\" ," + index + ")'><span>" + get_icon_svg(key) + "</span>";
+            content += "<button class='btn btn-def btn-xs' onclick='macro_select_glyph(event, \"" + key + "\" ," + index + ")'><span>" + get_icon_svg(key) + "</span>";
             content += "</button>";
         }
     }
@@ -100,7 +100,7 @@ function build_dlg_macrolist_line(index) {
     content += "<td style='vertical-align:middle'>";
     content += "<button onclick='macro_reset_button(" + index + ")'  class='btn btn-xs ";
     if (entry.class == '') {
-        content += "btn-default'  style='padding-top: 3px;padding-left: 4px;padding-right: 2px;padding-bottom: 0px;' >" + get_icon_svg("plus") + " </button></td><td colspan='5'>";
+        content += "btn-def'  style='padding-top: 3px;padding-left: 4px;padding-right: 2px;padding-bottom: 0px;' >" + get_icon_svg("plus") + " </button></td><td colspan='5'>";
     } else {
         content += "btn-danger' style='padding-top: 3px;padding-left: 2px;padding-right: 3px;padding-bottom: 0px;' >" + get_icon_svg("trash") + "</button></td>";
         content += "<td style='vertical-align:middle'><input type='text' id='macro_name_line_" + index + "' style='width:4em' class='form-control' onchange='on_macro_name(this," + index + ")' value='";
@@ -111,7 +111,7 @@ function build_dlg_macrolist_line(index) {
         content += "<td style='vertical-align:middle'>" + build_glyph_selection(index) + "</td>";
         content += "<td style='vertical-align:middle'>" + build_color_selection(index) + "</td>";
         content += "<td style='vertical-align:middle'>" + build_target_selection(index) + "</td>";
-        content += "<td style='vertical-align:middle'>" + build_filename_selection(index) + "</td>";
+        //content += "<td style='vertical-align:middle'>" + build_filename_selection(index) + "</td>";
     }
     content += "</td>";
     document.getElementById('macro_line_' + index).innerHTML = content;
@@ -148,8 +148,10 @@ function on_macro_name(item, index) {
     var macroname = item.value.trim();
     if (macroname.length > 0) {
         entry.name = item.value;
+        entry.filename = entry.name;
     } else {
         entry.name = "&nbsp;";
+        entry.filename = "empty";
     }
 }
 
@@ -181,7 +183,7 @@ function macro_reset_button(index) {
         entry.glyph = "star";
         entry.filename = "/macro" + (1 + entry.index) + ".g";
         entry.target = "ESP";
-        entry.class = "btn-default";
+        entry.class = "btn-def";
     } else {
         entry.name = "";
         entry.glyph = "";

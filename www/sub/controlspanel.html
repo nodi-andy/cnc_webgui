@@ -1,7 +1,22 @@
-<div id="controlPanel" style ="flex-direction: column; justify-content: center; gap: 12px; z-index: 20; background-color: darkslategray;">
-
+<div id="controlPanel" style ="flex-direction: column; justify-content: center; gap: 12px; z-index: 20; background-color: transparent;">
     <div>
-        <button id="clear_status_btn" class="btn fixedbutton btn-default" style="width: 100%;" onclick="SendPrinterCommand('$X', true, null,null, 114, 1); get_status();" style="padding: 5px 5px 0 5px;">
+        <button id="sd_reset_btn" class="shadowed" style="width: 100%;" onclick="grbl_reset();">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="red" class="bi bi-bootstrap-reboot" viewBox="0 0 16 16">
+                <path d="M1.161 8a6.84 6.84 0 1 0 6.842-6.84.58.58 0 1 1 0-1.16 8 8 0 1 1-6.556 3.412l-.663-.577a.58.58 0 0 1 .227-.997l2.52-.69a.58.58 0 0 1 .728.633l-.332 2.592a.58.58 0 0 1-.956.364l-.643-.56A6.812 6.812 0 0 0 1.16 8z"/>
+                <path d="M6.641 11.671V8.843h1.57l1.498 2.828h1.314L9.377 8.665c.897-.3 1.427-1.106 1.427-2.1 0-1.37-.943-2.246-2.456-2.246H5.5v7.352h1.141zm0-3.75V5.277h1.57c.881 0 1.416.499 1.416 1.32 0 .84-.504 1.324-1.386 1.324h-1.6z"/>
+              </svg>
+        </button>
+    </div>
+    <div>
+        <button id="sd_home_btn" class="shadowed" style="width: 100%;" onclick="grbl_reset();">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M2 13.5V7h1v6.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V7h1v6.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5zm11-11V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"></path>
+                <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"></path>
+              </svg>
+        </button>
+    </div>
+    <div>
+        <button id="clear_status_btn" class="shadowed" style="width: 100%;" onclick="SendPrinterCommand('$X', true, null,null, 114, 1); get_status();" style="padding: 5px 5px 0 5px;">
             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" class="bi bi-exclamation-triangle" viewBox="0 0 16 16">
                 <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
                 <path d="M7.002 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 5.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995z"/>
@@ -10,7 +25,7 @@
     </div>
 
     <div>
-        <button class="btn fixedbutton btn-default" style="width: 100%;" onclick="startBatch();" translate>
+        <button class="btn btn-def" style="width: 100%;" onclick="startBatch();" translate>
             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-collection-play" viewBox="0 0 16 16">
                 <path d="M2 3a.5.5 0 0 0 .5.5h11a.5.5 0 0 0 0-1h-11A.5.5 0 0 0 2 3zm2-2a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 0-1h-7A.5.5 0 0 0 4 1zm2.765 5.576A.5.5 0 0 0 6 7v5a.5.5 0 0 0 .765.424l4-2.5a.5.5 0 0 0 0-.848l-4-2.5z"/>
                 <path d="M1.5 14.5A1.5 1.5 0 0 1 0 13V6a1.5 1.5 0 0 1 1.5-1.5h13A1.5 1.5 0 0 1 16 6v7a1.5 1.5 0 0 1-1.5 1.5h-13zm13-1a.5.5 0 0 0 .5-.5V6a.5.5 0 0 0-.5-.5h-13A.5.5 0 0 0 1 6v7a.5.5 0 0 0 .5.5h13z"/>
@@ -19,7 +34,7 @@
     </div>
 
     <div>
-        <button id="sd_resume_btn" class="btn fixedbutton btn-default" style="width: 100%;" onclick="SendRealtimeCmd('~');">
+        <button id="sd_resume_btn" class="btn btn-def" style="width: 100%;" onclick="SendRealtimeCmd('~');">
             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-play-btn" viewBox="0 0 16 16">
                 <path d="M6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814l-3.5-2.5z"/>
                 <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm15 0a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z"/>
@@ -28,7 +43,7 @@
     </div>
 
     <div>
-        <button id="sd_pause_btn" class="btn fixedbutton btn-default" style="width: 100%;" onclick="SendRealtimeCmd('!');">
+        <button id="sd_pause_btn" class="btn btn-def" style="width: 100%;" onclick="SendRealtimeCmd('!');">
             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-pause-btn" viewBox="0 0 16 16">
                 <path d="M6.25 5C5.56 5 5 5.56 5 6.25v3.5a1.25 1.25 0 1 0 2.5 0v-3.5C7.5 5.56 6.94 5 6.25 5zm3.5 0c-.69 0-1.25.56-1.25 1.25v3.5a1.25 1.25 0 1 0 2.5 0v-3.5C11 5.56 10.44 5 9.75 5z"/>
                 <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm15 0a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z"/>
@@ -37,7 +52,7 @@
     </div>
 
     <div>
-        <button id="zero_xyz_btn"  class="btn fixedbutton btn-default" style="width: 100%;" onclick="SendZerocommand(grblzerocmd)">
+        <button id="zero_xyz_btn"  class="btn btn-def" style="width: 100%;" onclick="SendZerocommand(grblzerocmd)">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-circle" viewBox="0 0 16 16">
                 <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
                 <line x1="0" y1="16" x2="16" y2="0" stroke="black" />
@@ -46,7 +61,7 @@
     </div>
 
     <div>
-        <button id="btnProbe"  class="btn fixedbutton btn-default" style="width: 100%;" onclick="showProbeDialog()">
+        <button id="btnProbe"  class="btn btn-def" style="width: 100%;" onclick="showProbeDialog()">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-align-bottom" viewBox="0 0 16 16">
                 <rect width="4" height="12" x="6" y="1" rx="1"/>
                 <path d="M1.5 14a.5.5 0 0 0 0 1v-1zm13 1a.5.5 0 0 0 0-1v1zm-13 0h13v-1h-13v1z"/>
@@ -55,7 +70,7 @@
     </div>
 
     <div>
-        <button id="btnSpindle"  class="btn fixedbutton btn-default" style="width: 100%;" onclick="SendRealtimeCmd(String.fromCharCode(0x9E,0x0));">
+        <button id="btnSpindle"  class="btn btn-def" style="width: 100%;" onclick="SendRealtimeCmd(String.fromCharCode(0x9E,0x0));">
             <svg width="1.3em" height="1.4em" viewBox="0 0 1300 1200">
                 <g transform="translate(50,1200) scale(1, -1)">
                     <path fill="black" d="M600 1186q119 0 227.5 -46.5t187 -125t125 -187t46.5 -227.5t-46.5 -227.5t-125 -187t-187 -125t-227.5 -46.5t-227.5 46.5t-187 125t-125 187t-46.5 227.5t46.5 227.5t125 187t187 125t227.5 46.5zM600 1022q-115 0 -212 -56.5t-153.5 -153.5t-56.5 -212t56.5 -212 t153.5 -153.5t212 -56.5t212 56.5t153.5 153.5t56.5 212t-56.5 212t-153.5 153.5t-212 56.5zM600 794q80 0 137 -57t57 -137t-57 -137t-137 -57t-137 57t-57 137t57 137t137 57z"></path>
@@ -65,7 +80,7 @@
     </div>
 
     <div>
-        <button id="btnFlood"  class="btn fixedbutton btn-default" style="width: 100%;" onclick="SendRealtimeCmd(String.fromCharCode(0xA0,0x0));">
+        <button id="btnFlood"  class="btn btn-def" style="width: 100%;" onclick="SendRealtimeCmd(String.fromCharCode(0xA0,0x0));">
             <svg width="1.3em" height="1.4em" viewBox="0 0 1300 1200">
                 <g transform="translate(50,1200) scale(1, -1)">
                     <path fill="black" d="M554 1295q21 -72 57.5 -143.5t76 -130t83 -118t82.5 -117t70 -116t49.5 -126t18.5 -136.5q0 -71 -25.5 -135t-68.5 -111t-99 -82t-118.5 -54t-125.5 -23q-84 5 -161.5 34t-139.5 78.5t-99 125t-37 164.5q0 69 18 136.5t49.5 126.5t69.5 116.5t81.5 117.5t83.5 119 t76.5 131t58.5 143zM344 710q-23 -33 -43.5 -70.5t-40.5 -102.5t-17 -123q1 -37 14.5 -69.5t30 -52t41 -37t38.5 -24.5t33 -15q21 -7 32 -1t13 22l6 34q2 10 -2.5 22t-13.5 19q-5 4 -14 12t-29.5 40.5t-32.5 73.5q-26 89 6 271q2 11 -6 11q-8 1 -15 -10z"></path>
@@ -74,7 +89,7 @@
         </button>
     </div>
     <div>
-        <button id="btnMist"  class="btn fixedbutton btn-default" style="width: 100%;" onclick="SendRealtimeCmd(String.fromCharCode(0xA1,0x0));">
+        <button id="btnMist"  class="btn btn-def" style="width: 100%;" onclick="SendRealtimeCmd(String.fromCharCode(0xA1,0x0));">
             <svg width="1.3em" height="1.4em" viewBox="0 0 1300 1200">
                 <g transform="translate(50,1200) scale(1, -1)">
                     <path fill="black" d="M503 1089q110 0 200.5 -59.5t134.5 -156.5q44 14 90 14q120 0 205 -86.5t85 -207t-85 -207t-205 -86.5h-128v250q0 21 -14.5 35.5t-35.5 14.5h-300q-21 0 -35.5 -14.5t-14.5 -35.5v-250h-222q-80 0 -136 57.5t-56 136.5q0 69 43 122.5t108 67.5q-2 19 -2 37q0 100 49 185 t134 134t185 49zM525 500h150q10 0 17.5 -7.5t7.5 -17.5v-275h137q21 0 26 -11.5t-8 -27.5l-223 -244q-13 -16 -32 -16t-32 16l-223 244q-13 16 -8 27.5t26 11.5h137v275q0 10 7.5 17.5t17.5 7.5z"></path>
@@ -85,21 +100,14 @@
     </div>
 
     <div>
-        <button class="btn fixedbutton btn-default" id="x_axis" style="width: 100%;" onclick="showXaxisDialog()">X</button>
+        <button class="btn btn-def" id="x_axis" style="width: 100%;" onclick="showXaxisDialog()">X</button>
     </div>
     <div>
-        <button class="btn fixedbutton btn-default" id="y_axis" style="width: 100%;" onclick="showYaxisDialog()">Y</button>
+        <button class="btn btn-def" id="y_axis" style="width: 100%;" onclick="showYaxisDialog()">Y</button>
     </div>
     <div>
-        <button class="btn fixedbutton btn-default" id="z_axis" style="width: 100%;" onclick="showZaxisDialog()">Z</button>
+        <button class="btn btn-def" id="z_axis" style="width: 100%;" onclick="showZaxisDialog()">Z</button>
     </div>
 
-    <div>
-        <button id="sd_reset_btn" class="btn fixedbutton btn-default" onclick="grbl_reset();">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="red" class="bi bi-bootstrap-reboot" viewBox="0 0 16 16">
-                <path d="M1.161 8a6.84 6.84 0 1 0 6.842-6.84.58.58 0 1 1 0-1.16 8 8 0 1 1-6.556 3.412l-.663-.577a.58.58 0 0 1 .227-.997l2.52-.69a.58.58 0 0 1 .728.633l-.332 2.592a.58.58 0 0 1-.956.364l-.643-.56A6.812 6.812 0 0 0 1.16 8z"/>
-                <path d="M6.641 11.671V8.843h1.57l1.498 2.828h1.314L9.377 8.665c.897-.3 1.427-1.106 1.427-2.1 0-1.37-.943-2.246-2.456-2.246H5.5v7.352h1.141zm0-3.75V5.277h1.57c.881 0 1.416.499 1.416 1.32 0 .84-.504 1.324-1.386 1.324h-1.6z"/>
-              </svg>
-        </button>
-    </div>
+
 </div>

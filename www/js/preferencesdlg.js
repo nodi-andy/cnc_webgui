@@ -277,9 +277,9 @@ function applypreferenceslist() {
             document.getElementById('camtablink').style.display = "none";
         }
         if (!camoutput) {
-            document.getElementById('camera_frame').src = "";
+            /*/document.getElementById('camera_frame').src = "";
             document.getElementById('camera_frame_display').style.display = "none";
-            document.getElementById('camera_detach_button').style.display = "none";
+            document.getElementById('camera_detach_button').style.display = "none";*/
         }
     }
 
@@ -299,7 +299,7 @@ function applypreferenceslist() {
     }*/
     //active_extruder
     if (preferenceslist[0].is_mixed_extruder === 'true') {
-        document.getElementById('second_extruder_UI').style.display = 'none';
+        /*document.getElementById('second_extruder_UI').style.display = 'none';
         document.getElementById('first_extruder_UI').style.display = 'none';
         document.getElementById('temperature_secondExtruder').style.display = 'none';
         document.getElementById('mixed_extruder_UI').style.display = 'block';
@@ -308,9 +308,9 @@ function applypreferenceslist() {
         for (i = 0; i < preferenceslist[0].number_extruders; i++) {
             content += "<option value='" + i + "'>" + i + "</option>";
         }
-        document.getElementById('active_extruder').innerHTML = content;
+        document.getElementById('active_extruder').innerHTML = content;*/
     } else {
-        document.getElementById('first_extruder_UI').style.display = 'block';
+        /*document.getElementById('first_extruder_UI').style.display = 'block';
         document.getElementById('mixed_extruder_UI').style.display = 'none';
         if (preferenceslist[0].number_extruders == '2') {
             document.getElementById('second_extruder_UI').style.display = 'block';
@@ -320,7 +320,7 @@ function applypreferenceslist() {
             document.getElementById('second_extruder_UI').style.display = 'none';
             document.getElementById('temperature_secondExtruder').style.display = 'none';
             temperature_second_extruder(false);
-        }
+        }*/
     }
     /*if (preferenceslist[0].enable_lock_UI === 'true') {
         document.getElementById('lock_ui_btn').style.display = 'block';
@@ -335,7 +335,7 @@ function applypreferenceslist() {
         ontogglePing(false);
     }
 
-    if (supportsRedundantTemperatures()) {
+    /*if (supportsRedundantTemperatures()) {
         if (preferenceslist[0].enable_redundant === 'true') {
             document.getElementById('temperature_redundant').style.display = 'table-row';
             temperature_extruder_redundant(true);
@@ -378,7 +378,7 @@ function applypreferenceslist() {
 
     if (preferenceslist[0].enable_fan === 'true') document.getElementById('fan_UI').style.display = 'block';
     else document.getElementById('fan_UI').style.display = 'none';
-
+*/
 
     if ((target_firmware == "grbl-embedded") || (target_firmware == "grbl")) {
         if (preferenceslist[0].enable_grbl_panel === 'false') {
@@ -399,18 +399,18 @@ function applypreferenceslist() {
     } //else document.getElementById('monitor_enable_verbose_mode').checked = false;
     /*if (preferenceslist[0].enable_temperatures_panel === 'true') {
         document.getElementById('temperaturesPanel').style.display = 'block';
-    } else {*/
+    } else {
         document.getElementById('temperaturesPanel').style.display = 'none';
-/*        on_autocheck_temperature(false);
+        on_autocheck_temperature(false);
     }*/
 
     /*if (preferenceslist[0].enable_extruder_panel === 'true') document.getElementById('extruderPanel').style.display = 'flex';
-    else */document.getElementById('extruderPanel').style.display = 'none';
+    else document.getElementById('extruderPanel').style.display = 'none';*/
 
     /*if (preferenceslist[0].enable_files_panel === 'true') document.getElementById('filesPanel').style.display = 'flex';
     else document.getElementById('filesPanel').style.display = 'none';*/
     
-    if (preferenceslist[0].has_TFT_SD === 'true'){
+    /*if (preferenceslist[0].has_TFT_SD === 'true'){
          document.getElementById('files_refresh_tft_sd_btn').style.display = 'flex';
      }
     else {
@@ -435,17 +435,17 @@ function applypreferenceslist() {
     if(target_firmware == "grbl") {
             document.getElementById('files_refresh_printer_sd_btn').style.display = 'none';
             document.getElementById('files_refresh_btn').style.display = 'none';
-            document.getElementById('print_upload_btn').style.display = 'none';
+            //document.getElementById('print_upload_btn').style.display = 'none';
             document.getElementById('files_createdir_btn').style.display = "none";
         }
-
-    if (preferenceslist[0].enable_commands_panel === 'true') {
+*/
+    //if (preferenceslist[0].enable_commands_panel === 'true') {
         document.getElementById('commandsPanel').style.display = 'flex';
-        if (preferenceslist[0].enable_autoscroll === 'true') {
+/*        if (preferenceslist[0].enable_autoscroll === 'true') {
             //document.getElementById('monitor_enable_autoscroll').checked = true;
             Monitor_check_autoscroll();
         }// else document.getElementById('monitor_enable_autoscroll').checked = false;
-    } else document.getElementById('commandsPanel').style.display = 'none';
+    } else document.getElementById('commandsPanel').style.display = 'none';*/
 
     document.getElementById('posInterval_check').value = parseInt(preferenceslist[0].interval_positions);
     document.getElementById('statusInterval_check').value = parseInt(preferenceslist[0].interval_status);
@@ -478,10 +478,10 @@ function applypreferenceslist() {
     document.getElementById('probemaxtravel').value = parseFloat(preferenceslist[0].probemaxtravel);
     document.getElementById('probefeedrate').value = parseInt(preferenceslist[0].probefeedrate);
     document.getElementById('probetouchplatethickness').value = parseFloat(preferenceslist[0].probetouchplatethickness);
-    document.getElementById('tempInterval_check').value = parseInt(preferenceslist[0].interval_temperatures);
+    /*document.getElementById('tempInterval_check').value = parseInt(preferenceslist[0].interval_temperatures);
     document.getElementById('filament_length').value = parseInt(preferenceslist[0].e_distance);
     document.getElementById('extruder_velocity').value = parseInt(preferenceslist[0].e_feedrate);
-    build_file_filter_list(preferenceslist[0].f_filters);
+    build_file_filter_list(preferenceslist[0].f_filters);*/
 }
 
 function showpreferencesdlg() {
@@ -680,10 +680,12 @@ function build_dlg_preferences_list() {
     if ((typeof(preferenceslist[0].probetouchplatethickness) !== 'undefined') && (preferenceslist[0].probetouchplatethickness.length != 0)) {
         document.getElementById('preferences_probetouchplatethickness').value = parseFloat(preferenceslist[0].probetouchplatethickness);
     } else document.getElementById('preferences_probetouchplatethickness').value = parseFloat(default_preferenceslist[0].probetouchplatethickness);
+
     //interval temperatures
-    if (typeof(preferenceslist[0].interval_temperatures) !== 'undefined') {
+    /*if (typeof(preferenceslist[0].interval_temperatures) !== 'undefined') {
         document.getElementById('preferences_tempInterval_check').value = parseInt(preferenceslist[0].interval_temperatures);
-    } else document.getElementById('preferences_tempInterval_check').value = parseInt(default_preferenceslist[0].interval_temperatures);
+    } else document.getElementById('preferences_tempInterval_check').value = parseInt(default_preferenceslist[0].interval_temperatures);*/
+
     //e feedrate
     if (typeof(preferenceslist[0].e_feedrate) !== 'undefined') {
         document.getElementById('preferences_e_velocity').value = parseInt(preferenceslist[0].e_feedrate);

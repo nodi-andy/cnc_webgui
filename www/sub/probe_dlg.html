@@ -26,10 +26,10 @@
 
 <div id="x_axis_UI" class = "rightDialog" style = "left: 100%;">
     <div style="flex-direction: row;">
-        <div class="btn btn-lg btn-default" id="zero_x_btn" onclick="SendZerocommand('X0')">
+        <div class="btn btn-lg btn-def" id="zero_x_btn" onclick="SendZerocommand('X0')">
             Zero
         </div>
-        <div class="btn btn-lg btn-default" onclick="SendHomecommand('G28 X0')">
+        <div class="btn btn-lg btn-def" onclick="SendHomecommand('G28 X0')">
             Home
         </div>
     </div>
@@ -45,7 +45,7 @@
         <input class="form-control w8" type="number" min="1" id="control_y_velocity" onchange="onYvelocityChange()" />
         <div class="input-group-addon form_control" translate>mm/min</div>
     </div>
-    <button class="btn btn-lg btn-default" id="zero_y_btn" onclick="SendZerocommand('Y0')">&Oslash;</button>
+    <button class="btn btn-lg btn-def" id="zero_y_btn" onclick="SendZerocommand('Y0')">&Oslash;</button>
     <div>
         <button onclick="SendHomecommand('G28 Y0')">Home</button>
     </div>
@@ -57,7 +57,7 @@
         <input class="form-control w8" type="number" min="1" id="control_z_velocity" onchange="onZvelocityChange()" />
         <div class="input-group-addon form_control" translate>mm/min</div>
     </div>
-    <button class="btn btn-lg btn-default" id="zero_z_btn" onclick="SendZerocommand('Z0')">&Oslash;</button>
+    <button class="btn btn-lg btn-def" id="zero_z_btn" onclick="SendZerocommand('Z0')">&Oslash;</button>
     <div>
         <button onclick="SendHomecommand('G28 Z0')">Home</button>
     </div>
@@ -65,7 +65,7 @@
 
 <div id="spindle_UI" class = "rightDialog">
     <div>
-        <button class="btn btn-default" onclick="SendRealtimeCmd(String.fromCharCode(0x92,0x0));" style="padding: 5px 4px 0 5px;">
+        <button class="btn btn-def" onclick="SendRealtimeCmd(String.fromCharCode(0x92,0x0));" style="padding: 5px 4px 0 5px;">
             <table>
                 <tr>
                     <td>
@@ -81,7 +81,7 @@
                 </tr>
             </table>
         </button>
-        <button class="btn btn-default" onclick="SendRealtimeCmd(String.fromCharCode(0x94,0x0));" style="padding: 5px 4px 0 5px;">
+        <button class="btn btn-def" onclick="SendRealtimeCmd(String.fromCharCode(0x94,0x0));" style="padding: 5px 4px 0 5px;">
             <table>
                 <tr>
                     <td>
@@ -97,14 +97,14 @@
                 </tr>
             </table>
         </button>
-        <button class="btn btn-default" onclick="SendRealtimeCmd(String.fromCharCode(0x90,0x0));" style="padding: 5px 4px 0 5px;">
+        <button class="btn btn-def" onclick="SendRealtimeCmd(String.fromCharCode(0x90,0x0));" style="padding: 5px 4px 0 5px;">
             <svg width="1.3em" height="1.4em" viewBox="0 0 1300 1200">
                 <g transform="translate(50,1200) scale(1, -1)">
                     <path fill="black" d="M947 1060l135 135q7 7 12.5 5t5.5 -13v-362q0 -10 -7.5 -17.5t-17.5 -7.5h-362q-11 0 -13 5.5t5 12.5l133 133q-109 76 -238 76q-116 0 -214.5 -57t-155.5 -155.5t-57 -214.5t57 -214.5t155.5 -155.5t214.5 -57t214.5 57t155.5 155.5t57 214.5h150q0 -117 -45.5 -224 t-123 -184.5t-184.5 -123t-224 -45.5t-224 45.5t-184.5 123t-123 184.5t-45.5 224t45.5 224t123 184.5t184.5 123t224 45.5q192 0 347 -117z"></path>
                 </g>
             </svg>
         </button>
-        <button class="btn btn-default" onclick="SendRealtimeCmd(String.fromCharCode(0x93,0x0));" style="padding: 5px 4px 0 5px;">
+        <button class="btn btn-def" onclick="SendRealtimeCmd(String.fromCharCode(0x93,0x0));" style="padding: 5px 4px 0 5px;">
             <table>
                 <tr>
                     <td>
@@ -120,7 +120,7 @@
                 </tr>
             </table>
         </button>
-        <button class="btn btn-default" onclick="SendRealtimeCmd(String.fromCharCode(0x91,0x0));" style="padding: 5px 4px 0 5px;">
+        <button class="btn btn-def" onclick="SendRealtimeCmd(String.fromCharCode(0x91,0x0));" style="padding: 5px 4px 0 5px;">
             <table>
                 <tr>
                     <td>
@@ -138,7 +138,7 @@
         </button>
     </div>
     <div>
-        <button class="btn btn-default" onclick="SendRealtimeCmd(String.fromCharCode(0x9E,0x0));" style="padding: 5px 4px 0 5px;">
+        <button class="btn btn-def" onclick="SendRealtimeCmd(String.fromCharCode(0x9E,0x0));" style="padding: 5px 4px 0 5px;">
             <table>
                 <tr>
                     <td>
@@ -154,7 +154,7 @@
                 </tr>
             </table>
         </button>
-        <button class="btn btn-default" onclick="SendRealtimeCmd(String.fromCharCode(0xA0,0x0));" style="padding: 5px 4px 0 5px;">
+        <button class="btn btn-def" onclick="SendRealtimeCmd(String.fromCharCode(0xA0,0x0));" style="padding: 5px 4px 0 5px;">
             <table>
                 <tr>
                     <td>
@@ -170,7 +170,7 @@
                 </tr>
             </table>
         </button>
-        <button class="btn btn-default" onclick="SendRealtimeCmd(String.fromCharCode(0xA1,0x0));" style="padding: 5px 4px 0 5px;">
+        <button class="btn btn-def" onclick="SendRealtimeCmd(String.fromCharCode(0xA1,0x0));" style="padding: 5px 4px 0 5px;">
             <table>
                 <tr>
                     <td>

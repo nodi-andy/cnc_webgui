@@ -239,7 +239,7 @@ function ontoggleLock(forcevalue) {
         document.getElementById('lock_UI_btn_txt').innerHTML = translate_text_item("Unlock interface");
         disable_items(document.getElementById('maintab'), true);
         disable_items(document.getElementById('configtab'), true);
-        document.getElementById('progress_btn').disabled = false;
+        //document.getElementById('progress_btn').disabled = false;
         document.getElementById('clear_monitor_btn').disabled = false;
         document.getElementById('monitor_enable_verbose_mode').disabled = false;
         //document.getElementById('monitor_enable_autoscroll').disabled = false;
@@ -298,7 +298,7 @@ function Disable_interface(lostconnection) {
     //clear all waiting commands
     clear_cmd_list();
     //no camera 
-    document.getElementById('camera_frame').src = "";
+    //document.getElementById('camera_frame').src = "";
     //No auto check
     on_autocheck_position(false);
     on_autocheck_temperature(false);
@@ -326,19 +326,23 @@ function update_UI_firmware_target() {
         last_grbl_pos = "";
         document.getElementById('configtablink').style.display = 'block';
         document.getElementById('auto_check_control').style.display = 'none';
-        document.getElementById('progress_btn').style.display = 'none';
-        document.getElementById('abort_btn').style.display = 'none';
+        //document.getElementById('progress_btn').style.display = 'none';
+        //document.getElementById('abort_btn').style.display = 'none';
         //document.getElementById('motor_off_control').style.display = 'none';
         document.getElementById('tab_title_configuration').innerHTML = "<span translate>CNC configuration</span>";
         //document.getElementById('tab_printer_configuration').innerHTML = "<span translate>CNC</span>";
-        document.getElementById('files_input_file').accept = " .g, .gco, .gcode, .txt, .ncc, .G, .GCO, .GCODE, .TXT, .NC";
+        //document.getElementById('files_input_file').accept = " .g, .gco, .gcode, .txt, .ncc, .G, .GCO, .GCODE, .TXT, .NC";
         document.getElementById('zero_xyz_btn').style.display = 'block';
         document.getElementById('zero_x_btn').style.display = 'block';
         document.getElementById('zero_y_btn').style.display = 'block';
+        document.getElementById('control_x_position_display').style.display = 'flex';
+        if (grblaxis > 1) {
+            document.getElementById('control_y_position_display').style.display = 'flex';
+           
+        }
         if (grblaxis >2) {
-            //document.getElementById('control_z_position_display').style.display = 'block';
+            document.getElementById('control_z_position_display').style.display = 'flex';
             document.getElementById('control_z_position_label').innerHTML = "Zw";
-            //document.getElementById('zero_xyz_btn_txt').innerHTML +="Z";
             grblzerocmd += " Z0";
             
         } else {
@@ -380,11 +384,11 @@ function update_UI_firmware_target() {
         document.getElementById('configtablink').style.display = 'block';
         document.getElementById('tab_title_configuration').innerHTML = "<span translate>CNC configuration</span>";
         //document.getElementById('tab_printer_configuration').innerHTML = "<span translate>CNC</span>";
-        document.getElementById('files_input_file').accept = " .g, .gco, .gcode, .txt, .ncc, .G, .GCO, .GCODE, .TXT, .NC";
+        //document.getElementById('files_input_file').accept = " .g, .gco, .gcode, .txt, .ncc, .G, .GCO, .GCODE, .TXT, .NC";
         document.getElementById('auto_check_control').style.display = 'none';
         //document.getElementById('motor_off_control').style.display = 'none';
-        document.getElementById('progress_btn').style.display = 'none';
-        document.getElementById('abort_btn').style.display = 'none';
+        //document.getElementById('progress_btn').style.display = 'none';
+        //document.getElementById('abort_btn').style.display = 'none';
         document.getElementById('zero_xyz_btn').style.display = 'block';
         document.getElementById('zero_x_btn').style.display = 'block';
         document.getElementById('zero_y_btn').style.display = 'block';
@@ -504,10 +508,10 @@ function initUI_3() {
 
 function initUI_4() {
     AddCmd(display_boot_progress);
-    init_temperature_panel();
-    init_extruder_panel();
+    //init_temperature_panel();
+    //init_extruder_panel();
     init_command_panel();
-    init_files_panel(false);
+    //init_files_panel(false);
     //check if we need setup
     if (target_firmware == "???") {
         console.log("Launch Setup");

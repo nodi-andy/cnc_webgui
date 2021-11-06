@@ -1,5 +1,5 @@
-<div id="commandsPanel" class="panel panel-default panel-flex-col" style="flex-grow: 1;">
-    <div class="panel-flex-row" id="wrapper" style="z-index: 2; padding: 10px; display: grid; flex: 4;">
+<div id="commandsPanel"style="flex-grow: 1; flex-direction: column">
+    <div class="panel-flex-row shadowed" id="wrapper" style="z-index: 2; display: grid; flex: 4; overflow: auto;">
         <div style="grid-row: 1; grid-column: 1; z-index: 5;">
             <textarea class="form-control" id="commandEditor"></textarea>
         </div>
@@ -11,28 +11,30 @@
             </div>
         </div>
     </div>
-    <div style="display: grid; overflow: auto; flex: 1;">
-        <pre id="cmd_content" style="grid-row: 1; grid-column: 1; align-items: flex-start;"></pre>
-        <div style="grid-row: 1; grid-column: 1; z-index: 2; height: 40px; align-items: center; margin: 4px;">
-            <div style="flex: 1;">
-            </div>
-            <div style="width: max-content; height: 40px; align-items: center; margin: 4px; background-color:grey;">
-                <button id="clear_monitor_btn" class="btn btn-primary pull-right" style ="margin: 4px;" onclick="Monitor_output_Clear()" translate>Clear</button>
-                <input type="checkbox" id="autocheck_status" onclick="on_autocheck_status()" />
-                <span translate>update:</span>
-                <input class="form-control w4" type="number" min="1" max="99" id="statusInterval_check" value=3 onchange="onstatusIntervalChange()" />
-                <span style="padding: 10px; margin-right: 10px;" translate>sec</span>
+    <div id="commandsPanel2" class="panel panel-default panel-flex-col" style="flex: 1; overflow: auto;">
+        <div style="display: grid; overflow: auto; flex: 1;">
+            <pre id="cmd_content" style="grid-row: 1; grid-column: 1; align-items: flex-start;"></pre>
+            <div style="grid-row: 1; grid-column: 1; z-index: 2; height: 40px; align-items: center; margin: 4px;">
+                <div style="flex: 1;">
+                </div>
+                <div style="width: max-content; height: 40px; align-items: center; margin: 4px; background-color:grey;">
+                    <button id="clear_monitor_btn" class="btn btn-primary pull-right" style ="margin: 4px;" onclick="Monitor_output_Clear()" translate>Clear</button>
+                    <input type="checkbox" id="autocheck_status" onclick="on_autocheck_status()" />
+                    <span translate>update:</span>
+                    <input class="form-control w4" type="number" min="1" max="99" id="statusInterval_check" value=3 onchange="onstatusIntervalChange()" />
+                    <span style="padding: 10px; margin-right: 10px;" translate>sec</span>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="panel-flex-row">
-        <div class="input-group" style ="width: 100%;">
-            <div class="input-group">
-                <form autocomplete="off" onsubmit="return false;">
-                    <input autocomplete="off" class="form-control w14" type="text" onkeyup="CustomCommand_OnKeyUp(event)" value="" id="custom_cmd_txt" translateph placeholder="Send Command..." style="width: 100%;"/>
-                </form>
-                <div class="input-group-btn">
-                    <button class="btn btn-success" onclick="SendCustomCommand();" translate>Send</button>
+        <div class="panel-flex-row">
+            <div class="input-group" style ="width: 100%;">
+                <div class="input-group">
+                    <form autocomplete="off" onsubmit="return false;">
+                        <input autocomplete="off" class="form-control w14" type="text" onkeyup="CustomCommand_OnKeyUp(event)" value="" id="custom_cmd_txt" translateph placeholder="Send Command..." style="width: 100%;"/>
+                    </form>
+                    <div class="input-group-btn">
+                        <button class="btn btn-success" onclick="SendCustomCommand();" translate>Send</button>
+                    </div>
                 </div>
             </div>
         </div>

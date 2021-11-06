@@ -1,7 +1,6 @@
 #wrapper{
   position:relative;
-  height:100%;
-  width:100%;}
+ }
   #wrapper::before {
   left:0px;
   position:absolute;
@@ -37,7 +36,6 @@
 .tln-wrapper {
   padding: 0.6875em 0.3125em 2.1875em;
   height: 100%;
-  word-break: break-all;
   overflow: hidden;
   display: inline-block;
   counter-reset: line;

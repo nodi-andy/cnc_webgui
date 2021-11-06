@@ -23,14 +23,12 @@
     <script>
       var secondary_sd = "/sd/";
     </script>
-    <!--removeIf(cleanheader)-->
-    <!-- <link href="css/bootstrap.css" rel="stylesheet" /> -->
+    <link href="css/bootstrap.css" rel="stylesheet" />
     <link href="css/menu.css" rel="stylesheet" />
     <link href="css/tabs.css" rel="stylesheet" />
     <link href="css/modaldlg.css" rel="stylesheet" />
     <link href="css/wizard.css" rel="stylesheet" />
     <link href="css/tln.css" rel="stylesheet"/>
-    <!--endRemoveIf(cleanheader)-->
 
     <!-- smoosh -->
     <link href="css/style.css" rel="stylesheet" />
@@ -52,17 +50,18 @@
 
       <!-- content -->
       <div id="mainuitabscontent" style="width: 100%; flex: 1; overflow: auto; ">
-        <file-include w3-include-html="'sub/cameratab.html'"></file-include>
+        <!--  <file-include w3-include-html="'sub/cameratab.html'"></file-include> -->
         <file-include w3-include-html="'sub/configtab.html'"></file-include>
         <file-include w3-include-html="'sub/settingstab.html'"></file-include>
         <div id="maintab" class="tabcontent" style="flex: 1;">
           <file-include w3-include-html="'sub/macro.html'"></file-include>
-          <div id="maintab" class="tabcontent" style="flex: 1; flex-wrap: wrap;">
-            <file-include w3-include-html="'sub/files.html'"></file-include>
+
+           <!--  <file-include w3-include-html="'sub/files.html'"></file-include>
             <file-include w3-include-html="'sub/temperaturepanel.html'"></file-include>
-            <file-include w3-include-html="'sub/extruderpanel.html'"></file-include>
-            <file-include w3-include-html="'sub/commandpanel.html'"></file-include>
-          </div>  
+            <file-include w3-include-html="'sub/extruderpanel.html'"></file-include> 
+           -->
+          <file-include w3-include-html="'sub/commandpanel.html'"></file-include>
+
           <file-include w3-include-html="'sub/controlspanel.html'"></file-include>
   
         </div>

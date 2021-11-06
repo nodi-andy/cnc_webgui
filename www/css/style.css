@@ -7,6 +7,12 @@ div {
     display: flex;
 }
 
+.btn-def {
+    color: #333333;
+    background-color: #ffffff;
+    border-color: #cccccc;
+}
+
 .form_control {
     height: 34px !important;
     width: fit-content;
@@ -324,6 +330,7 @@ w25 {
     font-size: 16px;
     font-weight: bold;
     flex-direction: column;
+    display: none;
 }
 
 .macro-container {

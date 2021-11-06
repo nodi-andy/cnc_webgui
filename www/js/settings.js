@@ -88,13 +88,13 @@ function update_UI_setting() {
             case "461":
                 target_firmware = getFWshortnamefromid(setting_configList[i].defaultvalue);
                 update_UI_firmware_target();
-                init_files_panel(false);
+                //init_files_panel(false);
                 break;
                 // EP_IS_DIRECT_SD   850
             case "850":
                 direct_sd = (setting_configList[i].defaultvalue == 1) ? true : false;
                 update_UI_firmware_target();
-                init_files_panel(false);
+                //init_files_panel(false);
                 break;
             case "130":
                 //set title using hostname
@@ -129,7 +129,7 @@ function build_control_from_index(index, extra_set_function) {
             content += "<table><tr><td>";
             content += "<div class='input-group'>";
             content += "<div class='input-group-btn'>";
-            content += "<button class='btn btn-default btn-svg' onclick='setting_revert_to_default(" + i + "," + sub_element + ")' >";
+            content += "<button class='btn btn-def btn-svg' onclick='setting_revert_to_default(" + i + "," + sub_element + ")' >";
             content += get_icon_svg("repeat");
             content += "</button>";
             content += "</div>";
@@ -160,13 +160,13 @@ function build_control_from_index(index, extra_set_function) {
             content += "<div class='input-group'>";
             content += "<input class='hide_it'></input>";
             content += "<div class='input-group-btn'>";
-            content += "<button  id='btn_setting_" + i + "_" + sub_element + "' class='btn btn-default' onclick='settingsetvalue(" + i + "," + sub_element + ");";
+            content += "<button  id='btn_setting_" + i + "_" + sub_element + "' class='btn btn-def' onclick='settingsetvalue(" + i + "," + sub_element + ");";
             if (typeof extra_set_function != 'undefined') {
                 content += extra_set_function + "(" + i + ");"
             }
             content += "' translate english_content='Set' >" + translate_text_item("Set") + "</button>";
             if (setting_configList[i].pos == EP_STA_SSID) {
-                content += "<button class='btn btn-default btn-svg' onclick='scanwifidlg(\"" + i + "\",\"" + sub_element + "\")'>";
+                content += "<button class='btn btn-def btn-svg' onclick='scanwifidlg(\"" + i + "\",\"" + sub_element + "\")'>";
                 content += get_icon_svg("search");
                 content += "</button>";
             }
@@ -376,7 +376,7 @@ function setting_revert_to_default(index, subindex) {
         if (tmp == parseInt(setting_configList[index].defaultvalue)) document.getElementById('setting_' + index + "_" + sub).value = "1";
         else document.getElementById('setting_' + index + "_" + sub).value = "0";
     } else document.getElementById('setting_' + index + "_" + sub).value = setting_configList[index].defaultvalue
-    document.getElementById('btn_setting_' + index + "_" + sub).className = "btn btn-default";
+    document.getElementById('btn_setting_' + index + "_" + sub).className = "btn btn-def";
     document.getElementById('status_setting_' + index + "_" + sub).className = "form-group has-feedback";
     document.getElementById('icon_setting_' + index + "_" + sub).innerHTML = "";
 }
@@ -435,7 +435,7 @@ function setting_checkchange(index, subindex) {
     //console.log("default value: " + setting_configList[index].defaultvalue);
     if (setting_configList[index].defaultvalue == val) {
         console.log("values are identical");
-        document.getElementById('btn_setting_' + index + "_" + subindex).className = "btn btn-default";
+        document.getElementById('btn_setting_' + index + "_" + subindex).className = "btn btn-def";
         document.getElementById('icon_setting_' + index + "_" + subindex).className = "form-control-feedback";
         document.getElementById('icon_setting_' + index + "_" + subindex).innerHTML = "";
         document.getElementById('status_setting_' + index + "_" + subindex).className = "form-group has-feedback";
