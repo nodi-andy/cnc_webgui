@@ -319,17 +319,17 @@ function update_UI_firmware_target() {
     document.getElementById('control_x_position_label').innerHTML = "X";
     document.getElementById('control_y_position_label').innerHTML = "Y";
     document.getElementById('control_z_position_label').innerHTML = "Z";
-    document.getElementById('config_smoothie_nav').style.display = 'none';
+    //document.getElementById('config_smoothie_nav').style.display = 'none';
     showAxiscontrols();
     if (target_firmware == "grbl-embedded") {
         fwName = "GRBL ESP32";
         last_grbl_pos = "";
-        document.getElementById('configtablink').style.display = 'block';
+        //document.getElementById('configtablink').style.display = 'block';
         document.getElementById('auto_check_control').style.display = 'none';
         //document.getElementById('progress_btn').style.display = 'none';
         //document.getElementById('abort_btn').style.display = 'none';
         //document.getElementById('motor_off_control').style.display = 'none';
-        document.getElementById('tab_title_configuration').innerHTML = "<span translate>CNC configuration</span>";
+        //document.getElementById('tab_title_configuration').innerHTML = "<span translate>CNC configuration</span>";
         //document.getElementById('tab_printer_configuration').innerHTML = "<span translate>CNC</span>";
         //document.getElementById('files_input_file').accept = " .g, .gco, .gcode, .txt, .ncc, .G, .GCO, .GCODE, .TXT, .NC";
         document.getElementById('zero_xyz_btn').style.display = 'block';
@@ -381,7 +381,7 @@ function update_UI_firmware_target() {
 
     } else if (target_firmware == "grbl") {
         fwName = "Grbl";
-        document.getElementById('configtablink').style.display = 'block';
+        //document.getElementById('configtablink').style.display = 'block';
         document.getElementById('tab_title_configuration').innerHTML = "<span translate>CNC configuration</span>";
         //document.getElementById('tab_printer_configuration').innerHTML = "<span translate>CNC</span>";
         //document.getElementById('files_input_file').accept = " .g, .gco, .gcode, .txt, .ncc, .G, .GCO, .GCODE, .TXT, .NC";
@@ -401,7 +401,7 @@ function update_UI_firmware_target() {
         document.getElementById('control_zm_position_row').style.display = 'table-row';
     } else {
         fwName = "Unknown";
-        document.getElementById('configtablink').style.display = 'none';
+        //document.getElementById('configtablink').style.display = 'none';
     }
     if ((target_firmware == "grbl-embedded") || target_firmware == "marlin-embedded") {
         EP_HOSTNAME = "ESP_HOSTNAME";

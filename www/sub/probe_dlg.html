@@ -1,4 +1,5 @@
-<div id="probeUI" class = "rightDialog">
+<!-- 
+    <div id="probeUI" class = "rightDialog">
 
     <div class="input-group">
         <span class="input-group-addon form_control"><span translate>Max travel [mm]</span>:</span>
@@ -23,8 +24,9 @@
     <div class="loader" style="width:2em;height:2em;"></div>
     <button class="btn btn-primary" id="probingbtn" onclick="StartProbeProcess();" translate>Start Probe</button>
 </div>
+-->
 
-<div id="x_axis_UI" class = "rightDialog" style = "left: 100%;">
+<div id="x_axis_UI" class = "rightDialog shadowed" style = "left: 100%;">
     <div style="flex-direction: row;">
         <div class="btn btn-lg btn-def" id="zero_x_btn" onclick="SendZerocommand('X0')">
             Zero
@@ -39,7 +41,7 @@
     </div>
 </div>
 
-<div id="y_axis_UI" class = "rightDialog">
+<div id="y_axis_UI" class = "rightDialog shadowed">
     <div style="flex-direction: row;">
         <div class="input-group-addon form_control">Speed:</div>
         <input class="form-control w8" type="number" min="1" id="control_y_velocity" onchange="onYvelocityChange()" />
@@ -51,7 +53,7 @@
     </div>
 </div>
 
-<div id="z_axis_UI" class = "rightDialog">
+<div id="z_axis_UI" class = "rightDialog shadowed">
     <div style="flex-direction: row;">
         <div class="input-group-addon form_control">Speed:</div>
         <input class="form-control w8" type="number" min="1" id="control_z_velocity" onchange="onZvelocityChange()" />

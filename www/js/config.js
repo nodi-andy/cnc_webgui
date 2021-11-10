@@ -16,9 +16,9 @@ function refreshconfig(is_override) {
     is_override_config = false;
     if ((typeof is_override != 'undefined') && is_override) is_override_config = is_override;
     config_display_override(is_override_config);
-    document.getElementById('config_loader').style.display = "block";
-    document.getElementById('config_list_content').style.display = "none";
-    document.getElementById('config_status').style.display = "none";
+    //document.getElementById('config_loader').style.display = "block";
+    //document.getElementById('config_list_content').style.display = "none";
+    //document.getElementById('config_status').style.display = "none";
     document.getElementById('config_refresh_btn').style.display = "none";
     if (!is_override) config_configList = [];
     config_override_List = [];
@@ -47,7 +47,7 @@ function config_display_override(display_it) {
     } else {
         document.getElementById('config_override_list_content').style.display = "none";
         document.getElementById('config_main_content').style.display = "block";
-        document.getElementById('config_main_file').checked = true;
+        //document.getElementById('config_main_file').checked = true;
     }
 }
 
@@ -88,19 +88,14 @@ function build_HTML_config_list() {
             item = config_override_List[i];
             prefix = "_override"
         } else item = config_configList[i];
-        content += "<tr>";
-        if (item.showcomment) {
-            content += "<td colspan='3' class='info'>";
-            content += item.comment;
-        } else {
-            content += "<td style='vertical-align:middle'>";
-            content += item.label;
-            content += "</td>";
-            content += "<td style='vertical-align:middle;'>";
-            content += "<table><tr><td>"
+
+        content += "<div>";
+        content += item.label;
+        content += item.comment;
+        content += "</div>";
+
             content += "<div id='status_config_" + prefix + i + "' class='form-group has-feedback' style='margin: auto;'>";
             content += "<div class='item-flex-row'>";
-            content += "<table><tr><td>";
             content += "<div class='input-group'>";
             content += "<span class='input-group-btn'>";
             content += "<button class='btn btn-default btn-svg' onclick='config_revert_to_default(" + i + "," + is_override_config + ")' >";
@@ -109,17 +104,15 @@ function build_HTML_config_list() {
             content += "</span>";
             content += "<input class='hide_it'></input>";
             content += "</div>";
-            content += "</td><td>";
+
             content += "<div class='input-group'>";
             content += "<span class='input-group-addon hide_it' ></span>";
-            content += "<input id='config_" + prefix + i + "' type='text' class='form-control' style='width:";
-            if ((target_firmware == "marlin") || (target_firmware == "marlinkimbra") || (target_firmware == "marlin-embedded") || is_override_config) content += "25em";
-            else content += "auto";
+            content += "<input id='config_" + prefix + i + "' type='text' class='form-control' style='width: auto";
             content += "'  value='" + item.defaultvalue + "' onkeyup='config_checkchange(" + i + "," + is_override_config + ")' />";
             content += "<span id='icon_config_" + prefix + i + "'class='form-control-feedback ico_feedback' ></span>";
             content += "<span class='input-group-addon hide_it' ></span>";
             content += "</div>";
-            content += "</td></tr></table>";
+
             content += "<div class='input-group'>";
             content += "<input class='hide_it'></input>";
             content += "<span class='input-group-btn'>";
@@ -127,39 +120,18 @@ function build_HTML_config_list() {
             content += "</span>";
             content += "</div>";
             content += "</div>";
-            content += "</div>";
-            content += "</td></tr></table>";
-            content += "</td>";
-            content += "<td style='vertical-align:middle'>";
-            if ((target_firmware == "grbl") || (target_firmware == "grbl-embedded"))content += item.help;
-            else content += HTMLEncode(item.help);
-        }
-        content += "</td>";
-        content += "</tr>\n";
+        content += "</div>";
+
+        if ((target_firmware == "grbl") || (target_firmware == "grbl-embedded"))content += item.help;
+        else content += HTMLEncode(item.help);
+        content += "</div>";
     }
     if (content.length > 0) {
-        if (target_firmware == "smoothieware") {
-            document.getElementById('config_main_file_name').innerHTML = config_file_name;
-            if (!is_override_config) {
-                document.getElementById('config_list_data').innerHTML = content;
-                getprinterconfig(true);
-            } else {
-                document.getElementById('config_override_data').innerHTML = content;
-                if (is_config_override_file()) {
-                    document.getElementById('config_delete_override').style.display = 'none';
-                    document.getElementById('config_override_file_name').innerHTML = "Smoothieware";
-                } else {
-                    document.getElementById('config_override_file_name').innerHTML = "/sd/config-override";
-                    document.getElementById('config_delete_override').style.display = 'block';
-                }
-            }
-        } else {
-            document.getElementById('config_list_data').innerHTML = content;
-        }
+        document.getElementById('config_list_data').innerHTML = content;
     }
-    document.getElementById('config_loader').style.display = "none";
-    document.getElementById('config_list_content').style.display = "block";
-    document.getElementById('config_status').style.display = "none";
+    //document.getElementById('config_loader').style.display = "none";
+    //document.getElementById('config_list_content').style.display = "block";
+    //document.getElementById('config_status').style.display = "none";
     document.getElementById('config_refresh_btn').style.display = "block";
 }
 
@@ -579,9 +551,9 @@ function getESPconfigSuccess(response) {
     //console.log(response);
     if (!process_config_answer(response)) {
         getESPconfigfailed(406, translate_text_item("Wrong data"));
-        document.getElementById('config_loader').style.display = "none";
-        document.getElementById('config_list_content').style.display = "block";
-        document.getElementById('config_status').style.display = "none";
+        //document.getElementById('config_loader').style.display = "none";
+        //document.getElementById('config_list_content').style.display = "block";
+        //document.getElementById('config_status').style.display = "none";
         document.getElementById('config_refresh_btn').style.display = "block";
         return;
     }
@@ -589,8 +561,8 @@ function getESPconfigSuccess(response) {
 
 function getESPconfigfailed(error_code, response) {
     console.log("Error " + error_code + " :" + response);
-    document.getElementById('config_loader').style.display = "none";
-    document.getElementById('config_status').style.display = "block";
-    document.getElementById('config_status').innerHTML = translate_text_item("Failed:") + error_code + " " + response;
+    //document.getElementById('config_loader').style.display = "none";
+    //document.getElementById('config_status').style.display = "block";
+    //document.getElementById('config_status').innerHTML = translate_text_item("Failed:") + error_code + " " + response;
     document.getElementById('config_refresh_btn').style.display = "block";
 }

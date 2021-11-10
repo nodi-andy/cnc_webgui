@@ -90,11 +90,11 @@ function grbl_clear_status() {
 }
 
 function grbl_set_probe_detected(state) {
-    if (state) {
+    /*if (state) {
         document.getElementById('touch_status_icon').innerHTML = get_icon_svg("ok-circle", "1.3em", "1.2em", "green");
     } else {
         document.getElementById('touch_status_icon').innerHTML = get_icon_svg("record", "1.3em", "1.2em", "grey");
-    }
+    }*/
 }
 
 function onprobemaxtravelChange() {
@@ -422,7 +422,7 @@ function probe_failed_notification() {
 }
 
 function StartProbeProcess() {
-    var cmd = "G38.2 G91 Z-";
+    /*var cmd = "G38.2 G91 Z-";
     if (!onprobemaxtravelChange() ||
         !onprobefeedrateChange() ||
         !onprobetouchplatethicknessChange()) {
@@ -436,5 +436,5 @@ function StartProbeProcess() {
     document.getElementById("probingbtn").style.display = "none";
     document.getElementById("probingtext").style.display = "table-row";
     grbl_error_msg = "";
-    document.getElementById('grbl_status_text').innerHTML = grbl_error_msg;
+    document.getElementById('grbl_status_text').innerHTML = grbl_error_msg;*/
 }

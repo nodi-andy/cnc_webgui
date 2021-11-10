@@ -39,6 +39,7 @@
   overflow: hidden;
   display: inline-block;
   counter-reset: line;
+  background-color: darkgray;
 }
 .tln-line.tln-active-line {
   color:red;
@@ -49,7 +50,7 @@
   text-align: right;
   line-height: 1.5;
   font-size: 1em;
-  color: #aeaeae;
+  color: #000000;
 }
 .tln-line::before {
   counter-increment: line;

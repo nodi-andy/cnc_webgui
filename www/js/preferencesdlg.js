@@ -475,10 +475,10 @@ function applypreferenceslist() {
             }
         }
     } 
-    document.getElementById('probemaxtravel').value = parseFloat(preferenceslist[0].probemaxtravel);
+    /*document.getElementById('probemaxtravel').value = parseFloat(preferenceslist[0].probemaxtravel);
     document.getElementById('probefeedrate').value = parseInt(preferenceslist[0].probefeedrate);
     document.getElementById('probetouchplatethickness').value = parseFloat(preferenceslist[0].probetouchplatethickness);
-    /*document.getElementById('tempInterval_check').value = parseInt(preferenceslist[0].interval_temperatures);
+    document.getElementById('tempInterval_check').value = parseInt(preferenceslist[0].interval_temperatures);
     document.getElementById('filament_length').value = parseInt(preferenceslist[0].e_distance);
     document.getElementById('extruder_velocity').value = parseInt(preferenceslist[0].e_feedrate);
     build_file_filter_list(preferenceslist[0].f_filters);*/
@@ -667,6 +667,7 @@ function build_dlg_preferences_list() {
         }
     }
     //probemaxtravel
+    /*
     if ((typeof(preferenceslist[0].probemaxtravel) !== 'undefined') && (preferenceslist[0].probemaxtravel.length != 0)) {
         document.getElementById('preferences_probemaxtravel').value = parseFloat(preferenceslist[0].probemaxtravel);
     } else {
@@ -682,7 +683,7 @@ function build_dlg_preferences_list() {
     } else document.getElementById('preferences_probetouchplatethickness').value = parseFloat(default_preferenceslist[0].probetouchplatethickness);
 
     //interval temperatures
-    /*if (typeof(preferenceslist[0].interval_temperatures) !== 'undefined') {
+    if (typeof(preferenceslist[0].interval_temperatures) !== 'undefined') {
         document.getElementById('preferences_tempInterval_check').value = parseInt(preferenceslist[0].interval_temperatures);
     } else document.getElementById('preferences_tempInterval_check').value = parseInt(default_preferenceslist[0].interval_temperatures);*/
 
