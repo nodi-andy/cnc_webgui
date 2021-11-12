@@ -373,7 +373,7 @@ function update_UI_firmware_target() {
             document.getElementById('control_c_position_display').style.display = 'none';
         }
         //document.getElementById('FW_github').href = 'https://github.com/bdring/Grbl_Esp32';
-        document.getElementById('settings_filters').style.display = 'none';
+        //document.getElementById('settings_filters').style.display = 'none';
         document.getElementById('control_x_position_label').innerHTML = "Xw";
         document.getElementById('control_y_position_label').innerHTML = "Yw";
         
@@ -463,8 +463,8 @@ function initUI() {
     //update FW version
     if (typeof document.getElementById('FW_VERSION') != "undefined") document.getElementById('FW_VERSION').innerHTML = fw_version;
     // Get the element with id="defaultOpen" and click on it
-    document.getElementById("maintablink").click();
-    /*if ((target_firmware == "grbl-embedded") || (target_firmware == "grbl-embedded")) {
+    /*document.getElementById("maintablink").click();
+    if ((target_firmware == "grbl-embedded") || (target_firmware == "grbl-embedded")) {
         if (typeof document.getElementById("grblcontroltablink") !== 'undefined') {
             document.getElementById("grblcontroltablink").click();
         }

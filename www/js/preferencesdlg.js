@@ -269,18 +269,18 @@ function applypreferenceslist() {
                     }
                 }
             } else {
-                document.getElementById("maintablink").click();
-                document.getElementById('camtablink').style.display = "none";
+                //document.getElementById("maintablink").click();
+                //document.getElementById('camtablink').style.display = "none";
             }
         } else {
-            document.getElementById("maintablink").click();
-            document.getElementById('camtablink').style.display = "none";
+            //document.getElementById("maintablink").click();
+            //document.getElementById('camtablink').style.display = "none";
         }
-        if (!camoutput) {
-            /*/document.getElementById('camera_frame').src = "";
+        /*if (!camoutput) {
+            /document.getElementById('camera_frame').src = "";
             document.getElementById('camera_frame_display').style.display = "none";
-            document.getElementById('camera_detach_button').style.display = "none";*/
-        }
+            document.getElementById('camera_detach_button').style.display = "none";
+        }*/
     }
 
     /*if (preferenceslist[0].enable_grbl_probe_panel === 'true') {
@@ -490,8 +490,19 @@ function showpreferencesdlg() {
     language_save = language;
     build_dlg_preferences_list();
     document.getElementById('preferencesdlg_upload_msg').style.display = 'none';
-    showModal();*/
-    opentab(event, 'settingstab', 'mainuitabscontent', 'mainuitablinks');
+    showModal();
+    opentab(event, 'settingstab', 'mainuitabscontent', 'mainuitablinks');*/
+    var btnSettings = document.getElementById('settingtablink');
+    if (btnSettings.classList.contains("active")) {
+        btnSettings.classList.remove("active"); 
+        document.getElementById('maintab').style.display = "flex";
+        document.getElementById('settingstab').style.display = "none";
+    } else {
+        document.getElementById('maintab').style.display = "none";
+        document.getElementById('settingstab').style.display = "flex";
+        btnSettings.classList.add("active");   
+    }
+
 }
 
 function requestFullScreen(element) {

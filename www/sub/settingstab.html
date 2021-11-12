@@ -1,4 +1,4 @@
-<div id="settingstab" class="tabcontent shadowed" style="background-color: white; flex-direction: column; flex: 1;">
+<div id="settingstab" class="tabcontent shadowed" style="display: none; background-color: white; flex-direction: column; flex: 1;">
     <div translate style="justify-content: center;"">Settings</div>
     <div style="justify-content: center;">
         <div type="button" class="btn btn-info" onclick="statusdlg();">
@@ -37,7 +37,6 @@
             </svg>
         </div>
     </div>
-
     <button type="button" id="config_refresh_btn" class="btn btn-primary" onclick="refreshconfig();">
         <svg width="1.3em" height="1.2em" viewBox="0 0 1300 1200">
             <g transform="translate(50,1200) scale(1, -1)">
@@ -91,24 +90,5 @@
                             <tbody id="config_override_data"></tbody>
                         </table>
                     </div>
-        </div>
     </div>
-    <div class="loader hide_it" id="settings_loader"></div>
-    <div class="container hide_it" id="settings_list_content">
-        <span id="settings_filters">
-            <div class="radio-inline">
-                <label>
-                    <input type="radio" id="network_setting_filter" name="setting_filter" value="network" onclick="build_HTML_setting_list('network')">
-                    <span translate>Network</span>
-                </label>
-            </div>
-            <div class="radio-inline">
-                <label>
-                    <input type="radio" id="printer_setting_filter" name="setting_filter" value="network" onclick="build_HTML_setting_list('printer')">
-                    <span translate>Printer</span>
-                </label>
-            </div>
-        </span>
-
-    </div>
-</div>
+</div>  

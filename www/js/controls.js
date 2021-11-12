@@ -270,12 +270,14 @@ function control_build_macro_button(index) {
     content += entry.name;
     content += "</div>";
 
-    content += "<div class='btn btn-def' style='padding-left: 0px;padding-right: 0px;";
+    content += "<div class='btn btn-def btn-select' id='select" + entry.filename + "' style='padding-left: 0px;padding-right: 0px;";
     if (entry.glyph.length == 0) {
-        content += " display:none";
+        content += " display:none;";
     } else {
-        content += " display:flex";
+        content += " display:flex;";
     }
+
+    if (index == 0) content += " background-color:darkgray";
     content += "' ";
     content += "onclick='selectFile (\"" + entry.target + "\",\"" + entry.filename + "\")'>";
     content += get_icon_svg('triangle-right');
@@ -286,25 +288,27 @@ function control_build_macro_button(index) {
 }
 
 function control_build_macro_ui() {
-    var content = "<div class='btn btn-default shadowed' style='justify-content: center;' onclick='showmacrodlg(processMacroSave)'>";
-    content += "<svg width='24px' height='24px' viewBox='0 0 1300 1200'>";
-    content += "<g transform='translate(50,1200) scale(1, -1)'>";
-    content += "<path  fill='currentColor' d='M407 800l131 353q7 19 17.5 19t17.5 -19l129 -353h421q21 0 24 -8.5t-14 -20.5l-342 -249l130 -401q7 -20 -0.5 -25.5t-24.5 6.5l-343 246l-342 -247q-17 -12 -24.5 -6.5t-0.5 25.5l130 400l-347 251q-17 12 -14 20.5t23 8.5h429z'></path>";
-    content += "</g>";
-    content += "</svg>";
-    content += "<svg width='24px' height='24px' viewBox='0 0 1300 1200'>";
-    content += "<g transform='translate(50,1200) scale(1, -1)'>";
-    content += "<path  fill='currentColor' d='M1011 1210q19 0 33 -13l153 -153q13 -14 13 -33t-13 -33l-99 -92l-214 214l95 96q13 14 32 14zM1013 800l-615 -614l-214 214l614 614zM317 96l-333 -112l110 335z'></path>";
-    content += "</g>";
-    content += "</svg>";
-    content += "</div>";
+    var content = "";
+
     for (var i = 0; i < 9; i++) {
         content += control_build_macro_button(i);
     }
+    content += "<div class='btn btn-default shadowed' style='justify-content: center;' onclick='showmacrodlg(processMacroSave)'>";
+    content += '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square" viewBox="0 0 16 16">';
+    content += '<path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>';
+    content += '<path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>';
+    content += '</svg>';
+    content += "</div>";
     document.getElementById('Macro_list').innerHTML = content;
 }
 
 function selectFile(target, filename) {
+    var allBtnSelect = Array.from(document.getElementsByClassName("btn-select"));
+    allBtnSelect.forEach(element => { element.style.backgroundColor = "white";
+        
+    });
+    var btnSelect = document.getElementById("select" + filename);
+    btnSelect.style.backgroundColor = "darkgray";
     currentFile = filename;
     loadFile(currentFile);
 }
