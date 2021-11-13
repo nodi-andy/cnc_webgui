@@ -501,6 +501,8 @@ function showpreferencesdlg() {
         document.getElementById('maintab').style.display = "none";
         document.getElementById('settingstab').style.display = "flex";
         btnSettings.classList.add("active");   
+        refreshSettings(current_setting_filter);
+        refreshconfig();
     }
 
 }

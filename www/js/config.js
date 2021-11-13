@@ -19,7 +19,7 @@ function refreshconfig(is_override) {
     //document.getElementById('config_loader').style.display = "block";
     //document.getElementById('config_list_content').style.display = "none";
     //document.getElementById('config_status').style.display = "none";
-    document.getElementById('config_refresh_btn').style.display = "none";
+    //document.getElementById('config_refresh_btn').style.display = "none";
     if (!is_override) config_configList = [];
     config_override_List = [];
     //removeIf(production)
@@ -91,7 +91,7 @@ function build_HTML_config_list() {
 
         content += "<div>";
         content += item.label;
-        content += item.comment;
+        //content += item.comment;
         content += "</div>";
 
             content += "<div id='status_config_" + prefix + i + "' class='form-group has-feedback' style='margin: auto;'>";
@@ -127,12 +127,12 @@ function build_HTML_config_list() {
         content += "</div>";
     }
     if (content.length > 0) {
-        document.getElementById('config_list_data').innerHTML = content;
+        document.getElementById('settings_list_data').innerHTML += content;
     }
     //document.getElementById('config_loader').style.display = "none";
     //document.getElementById('config_list_content').style.display = "block";
     //document.getElementById('config_status').style.display = "none";
-    document.getElementById('config_refresh_btn').style.display = "block";
+    //document.getElementById('config_refresh_btn').style.display = "block";
 }
 
 function config_check_value(value, index, is_override) {
@@ -554,7 +554,7 @@ function getESPconfigSuccess(response) {
         //document.getElementById('config_loader').style.display = "none";
         //document.getElementById('config_list_content').style.display = "block";
         //document.getElementById('config_status').style.display = "none";
-        document.getElementById('config_refresh_btn').style.display = "block";
+        //document.getElementById('config_refresh_btn').style.display = "block";
         return;
     }
 }
@@ -564,5 +564,5 @@ function getESPconfigfailed(error_code, response) {
     //document.getElementById('config_loader').style.display = "none";
     //document.getElementById('config_status').style.display = "block";
     //document.getElementById('config_status').innerHTML = translate_text_item("Failed:") + error_code + " " + response;
-    document.getElementById('config_refresh_btn').style.display = "block";
+    //document.getElementById('config_refresh_btn').style.display = "block";
 }

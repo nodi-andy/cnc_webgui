@@ -277,7 +277,6 @@ function control_build_macro_button(index) {
         content += " display:flex;";
     }
 
-    if (index == 0) content += " background-color:darkgray";
     content += "' ";
     content += "onclick='selectFile (\"" + entry.target + "\",\"" + entry.filename + "\")'>";
     content += get_icon_svg('triangle-right');
@@ -300,6 +299,7 @@ function control_build_macro_ui() {
     content += '</svg>';
     content += "</div>";
     document.getElementById('Macro_list').innerHTML = content;
+    selectFile(control_macrolist[0].target, control_macrolist[0].filename);
 }
 
 function selectFile(target, filename) {
