@@ -15,7 +15,7 @@ function refreshSettings(hide_setting_list) {
     else do_not_build_settings = false;
     //document.getElementById('settings_loader').style.display = "block";
     //document.getElementById('settings_list_content').style.display = "none";
-    document.getElementById('settings_status').style.display = "none";
+    //document.getElementById('settings_status').style.display = "none";
     document.getElementById('settings_refresh_btn').style.display = "none";
     if (document.getElementById('languageList')) document.getElementById('languageList').innerHTML = build_language_list("language_preferences");
     setting_configList = [];
@@ -197,6 +197,9 @@ function build_HTML_setting_list(filter) {
     var content = "";
     current_setting_filter = filter;
     //document.getElementById(current_setting_filter + "_setting_filter").checked = true;
+    content += '<div>Version: </div>';
+    content += '<div id="UI_VERSION"></div>';
+    content += '<div id="FW_VERSION"></div>';
     content += "<div>Language</div>";
     content += "<div id='languageList'> </div>";
     content += "<div>Select Language</div>";
@@ -210,6 +213,9 @@ function build_HTML_setting_list(filter) {
         }
     }
     if (content.length > 0) document.getElementById('settings_list_data').innerHTML = content;
+    //update UI version
+    if (typeof document.getElementById('UI_VERSION') != "undefined") document.getElementById('UI_VERSION').innerHTML = web_ui_version;
+
 }
 
 function setting_check_value(value, index, subindex) {
@@ -487,15 +493,15 @@ function getESPsettingsSuccess(response) {
     }
     //document.getElementById('settings_loader').style.display = "none";
     //document.getElementById('settings_list_content').style.display = "block";
-    document.getElementById('settings_status').style.display = "none";
+    //document.getElementById('settings_status').style.display = "none";
     document.getElementById('settings_refresh_btn').style.display = "block";
 }
 
 function getESPsettingsfailed(error_code, response) {
     console.log("Error " + error_code + " :" + response);
     //document.getElementById('settings_loader').style.display = "none";
-    document.getElementById('settings_status').style.display = "block";
-    document.getElementById('settings_status').innerHTML = translate_text_item("Failed:") + error_code + " " + response;
+    //document.getElementById('settings_status').style.display = "block";
+    //document.getElementById('settings_status').innerHTML = translate_text_item("Failed:") + error_code + " " + response;
     document.getElementById('settings_refresh_btn').style.display = "block";
 }
 

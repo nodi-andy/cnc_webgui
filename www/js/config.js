@@ -42,11 +42,11 @@ function refreshconfig(is_override) {
 function config_display_override(display_it) {
     if (display_it) {
         document.getElementById('config_override_list_content').style.display = "block";
-        document.getElementById('config_main_content').style.display = "none";
+        //document.getElementById('config_main_content').style.display = "none";
         document.getElementById('config_override_file').checked = true;
     } else {
         document.getElementById('config_override_list_content').style.display = "none";
-        document.getElementById('config_main_content').style.display = "block";
+        //document.getElementById('config_main_content').style.display = "block";
         //document.getElementById('config_main_file').checked = true;
     }
 }

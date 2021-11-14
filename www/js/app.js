@@ -458,10 +458,8 @@ function initUI() {
     update_UI_firmware_target();
     //set title using hostname
     Set_page_title();
-    //update UI version
-    if (typeof document.getElementById('UI_VERSION') != "undefined") document.getElementById('UI_VERSION').innerHTML = web_ui_version;
     //update FW version
-    if (typeof document.getElementById('FW_VERSION') != "undefined") document.getElementById('FW_VERSION').innerHTML = fw_version;
+    //if (typeof document.getElementById('FW_VERSION') != "undefined" || typeof document.getElementById('FW_VERSION') != null) document.getElementById('FW_VERSION').innerHTML = fw_version;
     // Get the element with id="defaultOpen" and click on it
     /*document.getElementById("maintablink").click();
     if ((target_firmware == "grbl-embedded") || (target_firmware == "grbl-embedded")) {
