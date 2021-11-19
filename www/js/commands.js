@@ -26,6 +26,31 @@ function Monitor_output_Clear() {
     Monitor_output_Update();
 }
 
+function getIndexFromFileName(filename) {
+    for (let i = 0; i < macrodlg_macrolist.length; i++) {
+        if(macrodlg_macrolist[i].name == filename) {
+            return i;
+        }
+    }
+}
+
+function buildMacroMenu(filename) {
+    var index = getIndexFromFileName(filename);
+    var content = "<button onclick='macro_reset_button(" + index + ")'  class='btn btn-xs ";
+    content += "btn-danger' style='padding-top: 3px;padding-left: 2px;padding-right: 3px;padding-bottom: 0px;' >" + get_icon_svg("trash") + "</button></td>";
+    content += "<td style='vertical-align:middle'><input type='text' id='macro_name_line_" + index + "' style='width:4em' class='form-control' onchange='on_macro_name(this," + index + ")' value='";
+    content += filename;
+    content += "'/></td>";
+    content += "<td style='vertical-align:middle'>" + build_glyph_selection(index) + "</td>";
+    content += "<td style='vertical-align:middle'>" + build_color_selection(index) + "</td>";
+    //content += "<td style='vertical-align:middle'>" + build_target_selection(index) + "</td>";
+
+    content += "</td>";
+    content += "<button id = 'btnSaveToFile' class = 'btn btn-primary pull-right' style = 'margin: 4px;' onclick = 'saveToFile()' translate>Save</button>";
+    var macroDiv = document.getElementById("macroMenu");
+    macroDiv.innerHTML = content;
+}
+
 function saveToFile() {
     var cE = document.getElementById("commandEditor").value.replace(/\n/g, "\r\n");;
     var blob = new Blob([cE], {type: 'application/json'});
@@ -41,6 +66,7 @@ function saveToFile() {
     formData.append('myfile[]', file, currentFile);
     SendFileHttp(url, formData, null, fileUploadsuccess);
 }
+
 
 function fileUploadsuccess(response) {
     //SendCommand("[ESP700]macro1.g");

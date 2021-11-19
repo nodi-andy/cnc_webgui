@@ -80,6 +80,8 @@ function Macro_build_list(response_text) {
 function processMacroGetSuccess(response) {
     if (response.indexOf("<HTML>") == -1) Macro_build_list(response);
     else Macro_build_list("");
+
+    build_dlg_macrolist_ui();
 }
 
 function processMacroGetFailed(errorcode, response) {

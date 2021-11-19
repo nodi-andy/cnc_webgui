@@ -231,10 +231,11 @@ function create_config_entry(sentry, vindex) {
         var slabel = get_config_label(ssentry);
         var svalue = get_config_value(ssentry);
         var shelp = get_config_help(ssentry);
+        var isVisible = get_config_visible(vindex);
         var scmd = get_config_command(ssentry)
         var config_entry = {
             comment: ssentry,
-            showcomment: false,
+            showcomment: true,
             index: vindex,
             label: slabel,
             help: shelp,
@@ -242,12 +243,16 @@ function create_config_entry(sentry, vindex) {
             cmd: scmd,
             is_override: is_override_config
         };
-        if (is_override_config) config_override_List.push(config_entry);
-        else config_configList.push(config_entry);
+
+        if (isVisible) {
+            if (is_override_config) config_override_List.push(config_entry);
+            else config_configList.push(config_entry);
+        }
     }
     vindex++;
     return vindex;
 }
+
 //check it is valid entry
 function is_config_entry(sline) {
     var line = sline.trim();
@@ -318,6 +323,11 @@ function get_config_value(sline) {
     if (tline.length > 3) {
         return tline[2];
     } else return "???";
+}
+
+function get_config_visible(index) {
+    var vis = [1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    return !!vis[index];
 }
 
 function get_config_help(sline) {
@@ -480,58 +490,57 @@ function setESPconfigSuccess(response) {
     //console.log(response);
 }
 var grbl_help = {
-    "$0": "Step pulse, microseconds",
-    "$1": "Step idle delay, milliseconds",
-    "$2": "Step port invert, mask",
-    "$3": "Direction port invert, mask",
-    "$4": "Step enable invert, boolean",
-    "$5": "Limit pins invert, boolean",
-    "$6": "Probe pin invert, boolean",
-    "$10": "Status report, mask",
-    "$11": "Junction deviation, mm",
-    "$12": "Arc tolerance, mm",
-    "$13": "Report inches, boolean",
-    "$20": "Soft limits, boolean",
-    "$21": "Hard limits, boolean",
-    "$22": "Homing cycle, boolean",
-    "$23": "Homing dir invert, mask",
-    "$24": "Homing feed, mm/min",
-    "$25": "Homing seek, mm/min",
-    "$26": "Homing debounce, milliseconds",
-    "$27": "Homing pull-off, mm",
-    "$30": "Max spindle speed, RPM",
-    "$31": "Min spindle speed, RPM",
-    "$32": "Laser mode, boolean",
-    "$100": "X steps/mm",
-    "$101": "Y steps/mm",
-    "$102": "Z steps/mm",
-    "$103": "A steps/mm",
-    "$104": "B steps/mm",
-    "$105": "C steps/mm",
-    "$110": "X Max rate, mm/min",
-    "$111": "Y Max rate, mm/min",
-    "$112": "Z Max rate, mm/min",
-    "$113": "A Max rate, mm/min",
-    "$114": "B Max rate, mm/min",
-    "$115": "C Max rate, mm/min",
-    "$120": "X Acceleration, mm/sec^2",
-    "$121": "Y Acceleration, mm/sec^2",
-    "$122": "Z Acceleration, mm/sec^2",
-    "$123": "A Acceleration, mm/sec^2",
-    "$124": "B Acceleration, mm/sec^2",
-    "$125": "C Acceleration, mm/sec^2",
-    "$130": "X Max travel, mm",
-    "$131": "Y Max travel, mm",
-    "$132": "Z Max travel, mm",
-    "$133": "A Max travel, mm",
-    "$134": "B Max travel, mm",
-    "$135": "C Max travel, mm"
-
+    "$0": ["Step pulse, microseconds", 1],
+    "$1": ["Step idle delay, milliseconds"],
+    "$2": ["Step port invert, mask"],
+    "$3": ["Direction port invert, mask"],
+    "$4": ["Step enable invert, boolean"],
+    "$5": ["Limit pins invert, boolean"],
+    "$6": ["Probe pin invert, boolean"],
+    "$10": ["Status report, mask"],
+    "$11": ["Junction deviation, mm"],
+    "$12": ["Arc tolerance, mm"],
+    "$13": ["Report inches, boolean"],
+    "$20": ["Soft limits, boolean"],
+    "$21": ["Hard limits, boolean"],
+    "$22": ["Homing cycle, boolean"],
+    "$23": ["Homing dir invert, mask"],
+    "$24": ["Homing feed, mm/min"],
+    "$25": ["Homing seek, mm/min"],
+    "$26": ["Homing debounce, milliseconds"],
+    "$27": ["Homing pull-off, mm"],
+    "$30": ["Max spindle speed, RPM"],
+    "$31": ["Min spindle speed, RPM"],
+    "$32": ["Laser mode, boolean"],
+    "$100": ["X steps/mm"],
+    "$101": ["Y steps/mm"],
+    "$102": ["Z steps/mm"],
+    "$103": ["A steps/mm"],
+    "$104": ["B steps/mm"],
+    "$105": ["C steps/mm"],
+    "$110": ["X Max rate, mm/min"],
+    "$111": ["Y Max rate, mm/min"],
+    "$112": ["Z Max rate, mm/min"],
+    "$113": ["A Max rate, mm/min"],
+    "$114": ["B Max rate, mm/min"],
+    "$115": ["C Max rate, mm/min"],
+    "$120": ["X Acceleration, mm/sec^2"],
+    "$121": ["Y Acceleration, mm/sec^2"],
+    "$122": ["Z Acceleration, mm/sec^2"],
+    "$123": ["A Acceleration, mm/sec^2"],
+    "$124": ["B Acceleration, mm/sec^2"],
+    "$125": ["C Acceleration, mm/sec^2"],
+    "$130": ["X Max travel, mm"],
+    "$131": ["Y Max travel, mm"],
+    "$132": ["Z Max travel, mm"],
+    "$133": ["A Max travel, mm"],
+    "$134": ["B Max travel, mm"],
+    "$135": ["C Max travel, mm"]
 };
 
 function inline_help(label) {
     var shelp = "";
-    shelp = grbl_help[label];
+    shelp = grbl_help[label][0];
     if (typeof shelp === 'undefined') shelp = "";
     return translate_text_item(shelp);
 }

@@ -238,7 +238,7 @@ function ontoggleLock(forcevalue) {
     if (document.getElementById('lock_UI').checked) {
         document.getElementById('lock_UI_btn_txt').innerHTML = translate_text_item("Unlock interface");
         disable_items(document.getElementById('maintab'), true);
-        disable_items(document.getElementById('configtab'), true);
+        //disable_items(document.getElementById('configtab'), true);
         //document.getElementById('progress_btn').disabled = false;
         document.getElementById('clear_monitor_btn').disabled = false;
         document.getElementById('monitor_enable_verbose_mode').disabled = false;
@@ -250,7 +250,7 @@ function ontoggleLock(forcevalue) {
     } else {
         document.getElementById('lock_UI_btn_txt').innerHTML = translate_text_item("Lock interface");
         disable_items(document.getElementById('maintab'), false);
-        disable_items(document.getElementById('configtab'), false);
+        //disable_items(document.getElementById('configtab'), false);
         document.getElementById('settings_update_fw_btn').disabled = false;
         document.getElementById('settings_restart_btn').disabled = false;
         document.getElementById('JogUI').style.pointerEvents = 'auto';
@@ -483,6 +483,7 @@ function initUI_2() {
 }
 
 function loadFile(filename) {
+    buildMacroMenu(filename)
     var url = "/files?action=read";
     url += "&filename="+filename;
     url += "&path=/";

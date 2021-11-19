@@ -15,7 +15,7 @@ function build_color_selection(index) {
     var menu_pos = "down";
     if (index > 3) menu_pos = "up";
     content += "<div class='dropdownselect'  id='macro_color_line" + index + "'>";
-    content += "<button class='btn " + entry.class + "' onclick='showhide_drop_menu(event)'>&nbsp;";
+    if (entry) content += "<button class='btn " + entry.class + "' onclick='showhide_drop_menu(event)'>&nbsp;";
     content += "<svg width='0.8em' height='0.8em' viewBox='0 0 1300 1200' style='pointer-events:none'>";
     content += "<g transform='translate(50,1200) scale(1, -1)'>";
     content += "<path  fill='currentColor' d='M100 900h1000q41 0 49.5 -21t-20.5 -50l-494 -494q-14 -14 -35 -14t-35 14l-494 494q-29 29 -20.5 50t49.5 21z'></path>";
@@ -39,7 +39,7 @@ function build_target_selection(index) {
     var menu_pos = "down";
     if (index > 3) menu_pos = "up";
     content += "<div class='dropdownselect'  id='macro_target_line" + index + "'>";
-    content += "<button class='btn btn-def' style='min-width:5em;' onclick='showhide_drop_menu(event)'><span>" + entry.target + "</span>";
+    if (entry) content += "<button class='btn btn-def' style='min-width:5em;' onclick='showhide_drop_menu(event)'><span>" + entry.target + "</span>";
     content += "<svg width='0.8em' height='0.8em' viewBox='0 0 1300 1200' style='pointer-events:none'>";
     content += "<g transform='translate(50,1200) scale(1, -1)'>";
     content += "<path  fill='currentColor' d='M100 900h1000q41 0 49.5 -21t-20.5 -50l-494 -494q-14 -14 -35 -14t-35 14l-494 494q-29 29 -20.5 50t49.5 21z'></path>";
@@ -61,7 +61,7 @@ function build_glyph_selection(index) {
     var menu_pos = "down";
     if (index > 3) menu_pos = "up";
     content += "<div class='dropdownselect'  id='macro_glyph_line" + index + "'>";
-    content += "<button class='btn " + entry.class + "' onclick='showhide_drop_menu(event)'><span>" + get_icon_svg(entry.glyph) + "</span>&nbsp;";
+    if (entry) content += "<button class='btn " + entry.class + "' onclick='showhide_drop_menu(event)'><span>" + get_icon_svg(entry.glyph) + "</span>&nbsp;";
     content += "<svg width='0.8em' height='0.8em' viewBox='0 0 1300 1200' style='pointer-events:none'>";
     content += "<g transform='translate(50,1200) scale(1, -1)'>";
     content += "<path  fill='currentColor' d='M100 900h1000q41 0 49.5 -21t-20.5 -50l-494 -494q-14 -14 -35 -14t-35 14l-494 494q-29 29 -20.5 50t49.5 21z'></path>";
@@ -158,22 +158,24 @@ function on_macro_name(item, index) {
 function build_dlg_macrolist_ui() {
     var content = "";
     macrodlg_macrolist = [];
-    for (var i = 0; i < 9; i++) {
-        var entry = {
-            name: control_macrolist[i].name,
-            glyph: control_macrolist[i].glyph,
-            filename: control_macrolist[i].filename,
-            target: control_macrolist[i].target,
-            class: control_macrolist[i].class,
-            index: control_macrolist[i].index
-        };
-        macrodlg_macrolist.push(entry);
-        content += "<tr style='vertical-align:middle' id='macro_line_" + i + "'>";
-        content += "</tr>";
-    }
+    if (control_macrolist.length >= 9) {
+        for (var i = 0; i < 9; i++) {
+            var entry = {
+                name: control_macrolist[i].name,
+                glyph: control_macrolist[i].glyph,
+                filename: control_macrolist[i].filename,
+                target: control_macrolist[i].target,
+                class: control_macrolist[i].class,
+                index: control_macrolist[i].index
+            };
+            macrodlg_macrolist.push(entry);
+            content += "<tr style='vertical-align:middle' id='macro_line_" + i + "'>";
+            content += "</tr>";
+        }
 
-    document.getElementById('dlg_macro_list').innerHTML = content;
-    for (var i = 0; i < 9; i++) build_dlg_macrolist_line(i);
+        document.getElementById('dlg_macro_list').innerHTML = content;
+        for (var i = 0; i < 9; i++) build_dlg_macrolist_line(i);
+    }
 }
 
 function macro_reset_button(index) {

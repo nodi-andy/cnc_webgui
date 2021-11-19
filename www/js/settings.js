@@ -205,11 +205,9 @@ function build_HTML_setting_list(filter) {
     content += "<div>Select Language</div>";
     for (var i = 0; i < setting_configList.length; i++) {
         if ((setting_configList[i].F.trim().toLowerCase() == filter) || (filter == "all")) {
-            content += "<div style='vertical-align:middle'>";
-            content += translate_text_item(setting_configList[i].label, true);
-            content += "</div>";
+            content += "<div>" + translate_text_item(setting_configList[i].label, true) + "</div>";
             content += "<div>" + build_control_from_index(i) + "</div>\n";
-            content += "<div>" + "description" + "</div>\n";
+            content += "<div>" + setting_configList[i].help + "</div>\n";
         }
     }
     if (content.length > 0) document.getElementById('settings_list_data').innerHTML = content;
@@ -290,11 +288,28 @@ function process_settings_answer(response_text) {
     return result;
 }
 
+function getParamVisible(index) {
+    var vis = [1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    return !!vis[index];
+}
+
+function getHelpText(index) {
+    var texts = [
+        "Home WiFi network name",
+        "Home WiFi password",
+        "IP Mode",
+        "Station Static IP",
+        "Station Static Gateway"
+    ];
+    return texts[index];
+}
+
 function create_setting_entry(sentry, vindex) {
     if (!is_setting_entry(sentry)) return vindex;
     var slabel = sentry.H;
     var svalue = sentry.V;
     var scmd = "[ESP401]P=" + sentry.P + " T=" + sentry.T + " V=";
+    var helpText = getHelpText(vindex);
     var options = [];
     var min;
     var max;
@@ -345,9 +360,12 @@ function create_setting_entry(sentry, vindex) {
         min_val: min,
         max_val: max,
         type: sentry.T,
-        pos: sentry.P
+        pos: sentry.P,
+        help: helpText
     };
-    setting_configList.push(config_entry);
+    if (getParamVisible(vindex)) {
+        setting_configList.push(config_entry);
+    }
     vindex++;
     return vindex;
 }
